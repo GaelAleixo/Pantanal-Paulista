@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <!-- Metadados básicos da página -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pantanal Paulista - Início</title>
+
+  <!-- Importação do arquivo CSS externo (compartilhado por todas as páginas) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ======================================================
+       CABEÇALHO / MENU DE NAVEGAÇÃO
+       Igual em todas as páginas do site. Os links agora
+       apontam para arquivos .html reais (páginas separadas),
+       e não mais para âncoras de uma única página.
+  ======================================================= -->
+  <header class="header">
+    <div class="header-container">
+
+      <!-- Logo/nome do site, link para a página inicial -->
+      <a href="index.html" class="logo">Pantanal Paulista</a>
+
+      <!-- Menu principal de navegação -->
+      <nav class="nav-principal">
+        <ul class="nav-lista">
+          <!-- Classe "ativo" indica em qual página o usuário está -->
+          <li><a href="index.html" class="ativo">Início</a></li>
+          <li><a href="descubra.html">Descubra</a></li>
+          <li><a href="experiencias.html">Experiências</a></li>
+          <li><a href="eventos.html">Eventos</a></li>
+          <li><a href="empresas.html">Para Empresas</a></li>
+        </ul>
+      </nav>
+
+      <!-- Botão de destaque: leva à seção de planejamento de visita, dentro da página Descubra -->
+      <a href="descubra.html#planeje-visita" class="btn btn-primario btn-header">Planeje sua visita</a>
+
+    </div>
+  </header>
+
+  <!-- Conteúdo principal da página -->
+  <main>
+
+    <!-- ======================================================
+         HERO (topo da página Início)
+    ======================================================= -->
+    <section class="secao-hero">
+      <div class="container">
+
+        <!-- Rótulo do carrossel (troque por um carrossel real de imagens depois) -->
+        <p class="rotulo-carrossel">[ Carrossel de imagens da região ]</p>
+
+        <!-- Placeholder do carrossel de imagens -->
+        <!-- Substituir por <img> ou componente de carrossel real -->
+        <div class="placeholder-img placeholder-hero" aria-hidden="true"></div>
+
+        <h1 class="titulo-hero">Bem-vindo ao Pantanal Paulista</h1>
+        <p class="subtitulo-hero">Rios, fauna, flora e paisagens únicas no interior de São Paulo</p>
+      </div>
+    </section>
+
+    <!-- Bloco de texto de introdução, fundo creme -->
+    <section class="secao-intro">
+      <div class="container">
+        <p class="texto-intro">
+          O Pantanal Paulista reúne municípios banhados pelo Rio Tietê e Rio Paraná, oferecendo
+          pesca esportiva, ecoturismo e uma biodiversidade exuberante a poucas horas da capital.
+        </p>
+      </div>
+    </section>
+
+    <!-- Bloco "Explore a região": 4 cartões que levam para as outras páginas do site -->
+    <section class="secao-explore">
+      <div class="container">
+        <h2 class="titulo-secao">Explore a região</h2>
+
+        <!-- Grade de cartões feita com Flexbox (sem uso de grid/Bootstrap) -->
+        <div class="cartoes-flex">
+
+          <a href="descubra.html" class="cartao">
+            <div class="placeholder-img" aria-hidden="true"></div>
+            <h3 class="cartao-titulo">Descubra</h3>
+            <p class="cartao-texto">Municípios, mapas e onde ficar/comer</p>
+          </a>
+
+          <a href="experiencias.html" class="cartao">
+            <div class="placeholder-img" aria-hidden="true"></div>
+            <h3 class="cartao-titulo">Experiências</h3>
+            <p class="cartao-texto">Pesca esportiva e esportes náuticos</p>
+          </a>
+
+          <a href="eventos.html" class="cartao">
+            <div class="placeholder-img" aria-hidden="true"></div>
+            <h3 class="cartao-titulo">Eventos</h3>
+            <p class="cartao-texto">Feiras, festivais e cursos</p>
+          </a>
+
+          <a href="empresas.html" class="cartao">
+            <div class="placeholder-img" aria-hidden="true"></div>
+            <h3 class="cartao-titulo">Para Empresas</h3>
+            <p class="cartao-texto">Parcerias e investimentos</p>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================
+       RODAPÉ
+       Igual em todas as páginas. Os links das colunas
+       institucionais apontam para as páginas reais do site.
+  ======================================================= -->
+  <footer class="rodape">
+    <div class="container">
+
+      <div class="rodape-topo">
+        <p class="rodape-logo">Pantanal Paulista</p>
+      </div>
+
+      <div class="rodape-colunas">
+
+        <div class="rodape-coluna">
+          <h4>Institucional</h4>
+          <ul>
+            <li><a href="index.html">Sobre a região</a></li>
+            <li><a href="descubra.html">Conservação</a></li>
+            <li><a href="descubra.html">Boas práticas</a></li>
+            <li><a href="eventos.html">Notícias</a></li>
+            <li><a href="empresas.html">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="rodape-coluna">
+          <h4>Para o visitante</h4>
+          <ul>
+            <li><a href="descubra.html">Como chegar</a></li>
+            <li><a href="descubra.html">Quando visitar</a></li>
+            <li><a href="descubra.html">Dicas Úteis</a></li>
+            <li><a href="descubra.html#mapa">Guias e Mapas</a></li>
+            <li><a href="empresas.html">Perguntas Frequentes</a></li>
+          </ul>
+        </div>
+
+        <div class="rodape-coluna">
+          <h4>Siga e compartilhe</h4>
+          <ul>
+            <li><a href="index.html">Instagram</a></li>
+            <li><a href="index.html">Facebook</a></li>
+            <li><a href="index.html">YouTube</a></li>
+          </ul>
+        </div>
+
+        <div class="rodape-coluna rodape-aliado">
+          <h4>Seja um aliado</h4>
+          <p>O turismo consciente transforma. Apoie a conservação da natureza.</p>
+          <a href="empresas.html" class="link-saiba-mais">Saiba como ajudar →</a>
+        </div>
+
+      </div>
+
+      <div class="rodape-base">
+        <p>© Pantanal Paulista - Turismo Regional</p>
+        <a href="mailto:contato@pantanalpaulista.tur.br">contato@pantanalpaulista.tur.br</a>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
