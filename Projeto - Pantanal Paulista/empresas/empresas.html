@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pantanal Paulista - Para Empresas</title>
+  <title>Pantanal Paulista - Para Empresas e Investidores</title>
+
+ <!-- Importando a biblioteca de ícones Lucide -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,66 +35,112 @@
 
     <section class="secao-empresas">
 
-      <!-- Cabeçalho escuro da página -->
-      <div class="empresas-topo">
+      <!-- Novo Hero (Topo) com Imagem de Fundo B2B -->
+      <div class="empresas-hero">
         <div class="container">
-          <h1 class="titulo-pagina titulo-claro">Para Empresas</h1>
-          <p class="subtitulo-pagina subtitulo-claro">Parcerias, oportunidades para agências de turismo e investidores na região.</p>
+          <h1 class="titulo-pagina titulo-claro titulo-claro">Negócios no Pantanal Paulista</h1>
+          <p class="subtitulo-pagina subtitulo-claro">Ecossistema em crescimento: Parcerias estratégicas, oportunidades para agências de turismo e novos investidores na região noroeste do Estado de São Paulo.</p>
         </div>
       </div>
 
       <div class="container">
 
-        <!-- Cartões de oportunidades para empresas -->
-        <div class="cartoes-flex cartoes-3">
-          <article class="cartao-empresa">
+        <!-- Cartões Modernizados com Ícones -->
+        <div class="cartoes-b2b-flex">
+          <article class="cartao-empresa-moderno">
+            <div class="cartao-icone">
+              <i data-lucide="handshake"></i>
+            </div>
             <h3>Parcerias</h3>
-            <p>Conecte sua marca à divulgação institucional da região.</p>
+            <p>Associe sua marca à preservação e ao desenvolvimento sustentável. Conecte-se às nossas iniciativas de divulgação institucional e alcance um público qualificado.</p>
           </article>
-          <article class="cartao-empresa">
+          <article class="cartao-empresa-moderno">
+            <div class="cartao-icone">
+              <i data-lucide="compass"></i>
+            </div>
             <h3>Para Agências de Turismo</h3>
             <p>Pacotes, comissionamento e material de apoio para revenda.</p>
           </article>
-          <article class="cartao-empresa">
+          <article class="cartao-empresa-moderno">
+            <div class="cartao-icone">
+              <i data-lucide="trending-up"></i>
+            </div>
             <h3>Para Investidores</h3>
             <p>Oportunidades de investimento em infraestrutura turística.</p>
           </article>
         </div>
 
-        <!-- Formulário de contato institucional -->
+        <!-- Nova Seção de Dados Reais (Argumentos de Venda) -->
+        <section class="secao-argumentos">
+          <div class="argumentos-grid">
+            <div class="argumentos-texto">
+              <h2>Por que investir no Pantanal Paulista?</h2>
+              <p>Uma região em pleno desenvolvimento sustentável, unindo ecoturismo de alto padrão e preservação ambiental.</p>
+              
+              <div class="argumentos-lista">
+                <div class="argumento-item">
+                  <i data-lucide="check-circle"></i>
+                  <div>
+                    <p><strong>Crescimento do Turismo Ecológico:</strong> Demanda crescente por experiências autênticas e de contato com a natureza.</p>
+                  </div>
+                </div>
+                <div class="argumento-item">
+                  <i data-lucide="check-circle"></i>
+                  <div>
+                    <p><strong>Apoio Institucional:</strong> Parcerias estratégicas para facilitar a implantação e divulgação de novos negócios.</p>
+                  </div>
+                </div>
+                <div class="argumento-item">
+                  <i data-lucide="check-circle"></i>
+                  <div>
+                    <p><strong>Sustentabilidade em Foco:</strong> Projetos alinhados com as melhores práticas ambientais do mercado.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="argumentos-imagem">
+              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Paisagem Pantanal Paulista">
+            </div>
+          </div>
+        </section>
+
+        <!-- Formulário B2B Atualizado -->
         <div class="secao-formulario-contato">
-          <h2 class="titulo-secao">Fale com o nosso time institucional</h2>
+          <div class="form-contato">
+            <h2 class="titulo-form">Fale com o nosso time institucional</h2>
 
-          <form class="form-contato" action="#" method="post">
-            <div class="linha-form">
-              <div class="campo-form">
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome" required>
+            <form action="#" method="post">
+              <div class="linha-form">
+                <div class="campo-form">
+                  <label for="nome">Nome</label>
+                  <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="campo-form">
+                  <label for="empresa">Empresa</label>
+                  <input type="text" id="empresa" name="empresa">
+                </div>
               </div>
-              <div class="campo-form">
-                <label for="empresa">Empresa</label>
-                <input type="text" id="empresa" name="empresa">
-              </div>
-            </div>
 
-            <div class="linha-form">
-              <div class="campo-form">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+              <div class="linha-form">
+                <div class="campo-form">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required>
+                </div>
+                <div class="campo-form">
+                  <label for="telefone">Telefone</label>
+                  <input type="tel" id="telefone" name="telefone">
+                </div>
               </div>
-              <div class="campo-form">
-                <label for="telefone">Telefone</label>
-                <input type="tel" id="telefone" name="telefone">
+
+              <div class="campo-form campo-full">
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" rows="5"></textarea>
               </div>
-            </div>
 
-            <div class="campo-form campo-full">
-              <label for="mensagem">Mensagem</label>
-              <textarea id="mensagem" name="mensagem" rows="5"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primario">Enviar mensagem →</button>
-          </form>
+              <button type="submit" class="btn btn-primario">Enviar mensagem →</button>
+            </form>
+          </div>
         </div>
 
       </div>
@@ -148,5 +198,9 @@
     </div>
   </footer>
 
+  <!-- Inicialização dos ícones Lucide -->
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
