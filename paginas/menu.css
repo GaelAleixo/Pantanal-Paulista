@@ -108,3 +108,20 @@
   .logo-img { height: 62px; }
   .logo-rodape { height: 96px; }
 }
+/* ========================================================
+   RODAPÉ (desktop): logo + 4 colunas na mesma linha (5 colunas)
+   Em telas menores, o rodapé segue empilhado.
+======================================================== */
+@media (min-width: 993px) {
+  .rodape .container {
+    display: grid;
+    grid-template-columns: 150px repeat(4, minmax(0, 1fr));
+    column-gap: 32px;
+    align-items: start;
+  }
+  .rodape-topo,
+  .rodape-colunas { display: contents; }
+  .rodape-logo { margin-bottom: 0; }
+  .rodape-coluna { margin-bottom: 40px; min-width: 0; }
+  .rodape-base { grid-column: 1 / -1; }
+}
