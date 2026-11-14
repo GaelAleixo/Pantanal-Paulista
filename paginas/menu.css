@@ -100,11 +100,11 @@
 ======================================================== */
 .header .logo { display: inline-flex; align-items: center; line-height: 0; }
 .header .header-container { padding-top: 8px; padding-bottom: 8px; }
-.logo-img { display: block; height: 64px; width: auto; }
+.logo-img { display: block; height: 76px; width: auto; }
 .rodape-logo { line-height: 0; margin-bottom: 32px; }
-.logo-rodape { display: block; height: 96px; width: auto; }
+.logo-rodape { display: block; height: 114px; width: auto; }
 
 @media (max-width: 768px) {
-  .logo-img { height: 52px; }
-  .logo-rodape { height: 80px; }
+  .logo-img { height: 62px; }
+  .logo-rodape { height: 96px; }
 }
