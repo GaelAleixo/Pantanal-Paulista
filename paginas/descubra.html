@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://maps.googleapis.com https://*.gstatic.com https://*.google.com https://*.ggpht.com https://*.googleusercontent.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://*.googleapis.com https://*.gstatic.com https://*.google.com https://*.googleusercontent.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.googleapis.com https://*.google.com https://*.gstatic.com; frame-src https://www.youtube-nocookie.com https://www.google.com; worker-src blob:; form-action https://www.google.com; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <script src="seguranca.js"></script>
+  <title>Pantanal Paulista - Descubra</title>
+  <link rel="stylesheet" href="style_descubra.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO / MENU (igual em todas as páginas) -->
+  <header class="header">
+    <div class="header-container">
+      <a href="../index.html" class="logo">Pantanal Paulista</a>
+
+      <nav class="nav-principal">
+        <ul class="nav-lista">
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="descubra.html" class="ativo">Descubra</a></li>
+          <li><a href="experiencias.html">Experiências e Eventos</a></li>
+          <li><a href="empresas.html">Para Empresas</a></li>
+        </ul>
+      </nav>
+
+      <a href="#planeje-visita" class="btn btn-primario btn-header">Planeje sua visita</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="descubra-topo">
+      <div class="container">
+        <div class="descubra-topo-texto">
+        <p class="rotulo rotulo-claro">GUIA DO VISITANTE</p>
+        <h1 class="titulo-secao-grande">Descubra o<br>PANTANAL PAULISTA</h1>
+        <p class="subtitulo-secao-grande">
+          Rios, biodiversidade, municípios e experiências inesquecíveis
+          em uma das regiões mais ricas do país.
+        </p>
+        </div>
+        <div class="descubra-topo-midia">
+        <!-- Carrossel do banner: 1) imagem, 2) vídeo do YouTube -->
+        <div class="descubra-carrossel" id="descubra-carrossel" role="region" aria-roledescription="carrossel" aria-label="Destaques do Pantanal Paulista">
+          <div class="descubra-slide descubra-slide-ativo" aria-label="Slide 1 de 2: imagem">
+            <div class="placeholder-img placeholder-descubra-hero"><img src="img/img 1.png" alt="Paisagem do Pantanal Paulista"></div>
+          </div>
+          <div class="descubra-slide" aria-label="Slide 2 de 2: vídeo">
+            <iframe id="descubra-video" title="Vídeo sobre o Pantanal Paulista" data-src="https://www.youtube-nocookie.com/embed/bDJVuci46OU?rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-scripts allow-same-origin allow-presentation allow-popups allow-popups-to-escape-sandbox" allowfullscreen></iframe>
+          </div>
+          <button type="button" class="descubra-carrossel-btn descubra-carrossel-prev" aria-label="Slide anterior">&#8592;</button>
+          <button type="button" class="descubra-carrossel-btn descubra-carrossel-next" aria-label="Próximo slide">&#8594;</button>
+          <div class="descubra-carrossel-dots">
+            <button type="button" class="descubra-dot descubra-dot-ativo" aria-label="Slide 1: imagem"></button>
+            <button type="button" class="descubra-dot" aria-label="Slide 2: vídeo"></button>
+          </div>
+        </div>
+        <p class="descubra-video-aviso" hidden>Se o vídeo não carregar, <a href="https://youtu.be/bDJVuci46OU" target="_blank" rel="noopener">assista no YouTube</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="subnav-descubra">
+      <div class="container subnav-lista">
+        <a href="#mapa"><span class="subnav-titulo">MAPA</span><span class="subnav-desc">Explore a região</span></a>
+        <a href="#hospedagem"><span class="subnav-titulo">HOSPEDAGEM</span><span class="subnav-desc">Onde ficar</span></a>
+        <a href="#gastronomia"><span class="subnav-titulo">GASTRONOMIA</span><span class="subnav-desc">Sabores locais</span></a>
+        <a href="#municipios"><span class="subnav-titulo">MUNICÍPIOS</span><span class="subnav-desc">Conheça as cidades</span></a>
+        <a href="#natureza"><span class="subnav-titulo">NATUREZA</span><span class="subnav-desc">Fauna e a flora</span></a>
+      </div>
+    </nav>
+
+    <section id="mapa" class="secao-mapa">
+      <div class="container container-duas-colunas">
+        <div class="mapa-texto">
+          <p class="rotulo">UM TERRITÓRIO PARA EXPLORAR</p>
+          <h2 class="titulo-secao">O Pantanal Paulista em cada detalhe</h2>
+          <p>
+            Mais que um destino, uma conexão profunda com a natureza.
+            Descubra os municípios que fazem parte desse mosaico da vida,
+            cultura e paisagens únicas.
+          </p>
+          <a href="#municipios" class="btn btn-primario">Explorar o Mapa</a>
+        </div>
+        <div class="mapa-imagem">
+          <div id="mapa-google" class="placeholder-img placeholder-mapa" role="region" aria-label="Mapa do Google com as 11 cidades do Pantanal Paulista"></div>
+          <noscript><img src="img/mapa.png" alt="Mapa ilustrado dos municípios do Pantanal Paulista"></noscript>
+          <ul class="mapa-lista" aria-label="Cidades destacadas no mapa"><li><a href="#municipio-mirandopolis">Mirandópolis</a></li><li><a href="#municipio-castilho">Castilho</a></li><li><a href="#municipio-rubiacea">Rubiácea</a></li><li><a href="#municipio-andradina">Andradina</a></li><li><a href="#municipio-pereira-barreto">Pereira Barreto</a></li><li><a href="#municipio-valparaiso">Valparaíso</a></li><li><a href="#municipio-sud-mennucci">Sud Mennucci</a></li><li><a href="#municipio-bento-de-abreu">Bento de Abreu</a></li><li><a href="#municipio-itapura">Itapura</a></li><li><a href="#municipio-ilha-solteira">Ilha Solteira</a></li><li><a href="#municipio-suzanapolis">Suzanápolis</a></li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="planeje-visita" class="secao-planeje">
+      <div class="container">
+        <h2 class="titulo-secao">Planeje sua visita</h2>
+        <div class="container-duas-colunas">
+
+          <div id="hospedagem" class="cartao-busca">
+            <div class="placeholder-img placeholder-busca"><img loading="lazy" src="img/pousada.png" alt="Hospedagem em meio à natureza"></div>
+            <h3>Onde Ficar</h3>
+            <p>Encontre hospedagens que oferecem conforto e experiência em meio à natureza.</p>
+            <form class="form-busca" action="https://www.google.com/maps/search/" method="get" target="_blank" rel="noopener" data-busca="hospedagem">
+              <input type="hidden" name="api" value="1">
+              <input type="hidden" name="query" value="">
+              <label for="municipio-hospedagem" class="visualmente-oculto">Município</label>
+              <select id="municipio-hospedagem" name="municipio" required>
+                <option value="">Município</option>
+                <option value="todo">Todo o circuito do Pantanal Paulista</option><option value="Mirandópolis">Mirandópolis</option><option value="Castilho">Castilho</option><option value="Rubiácea">Rubiácea</option><option value="Andradina">Andradina</option><option value="Pereira Barreto">Pereira Barreto</option><option value="Valparaíso">Valparaíso</option><option value="Sud Mennucci">Sud Mennucci</option><option value="Bento de Abreu">Bento de Abreu</option><option value="Itapura">Itapura</option><option value="Ilha Solteira">Ilha Solteira</option><option value="Suzanápolis">Suzanápolis</option>
+              </select>
+              <button type="submit" class="btn btn-primario">Buscar hospedagem →</button>
+            </form>
+          </div>
+
+          <div id="gastronomia" class="cartao-busca">
+            <div class="placeholder-img placeholder-busca"><img loading="lazy" src="img/restaurante.png" alt="Prato da culinária regional"></div>
+            <h3>Onde Comer</h3>
+            <p>Sabores do Pantanal Paulista: ingredientes locais e receitas tradicionais.</p>
+            <form class="form-busca" action="https://www.google.com/maps/search/" method="get" target="_blank" rel="noopener" data-busca="restaurantes">
+              <input type="hidden" name="api" value="1">
+              <input type="hidden" name="query" value="">
+              <label for="municipio-restaurante" class="visualmente-oculto">Município</label>
+              <select id="municipio-restaurante" name="municipio" required>
+                <option value="">Município</option>
+                <option value="todo">Todo o circuito do Pantanal Paulista</option><option value="Mirandópolis">Mirandópolis</option><option value="Castilho">Castilho</option><option value="Rubiácea">Rubiácea</option><option value="Andradina">Andradina</option><option value="Pereira Barreto">Pereira Barreto</option><option value="Valparaíso">Valparaíso</option><option value="Sud Mennucci">Sud Mennucci</option><option value="Bento de Abreu">Bento de Abreu</option><option value="Itapura">Itapura</option><option value="Ilha Solteira">Ilha Solteira</option><option value="Suzanápolis">Suzanápolis</option>
+              </select>
+              <button type="submit" class="btn btn-primario">Buscar restaurantes →</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="secao-experiencias-preview">
+      <div class="container">
+        <p class="rotulo rotulo-claro">EXPERIÊNCIAS</p>
+        <div class="cartoes-flex cartoes-3">
+          <a href="experiencias.html" class="cartao-preview">
+            <div><img loading="lazy" src="img/pesca esportiva.png" alt="Pesca esportiva nos rios da região"></div>
+            <h3>PESCA ESPORTIVA</h3>
+            <p>Etapas e competições regionais de pesca esportiva.</p>
+          </a>
+          <a href="experiencias.html" class="cartao-preview">
+            <div><img loading="lazy" src="img/passeio.png" alt="Passeio de barco pelos rios da região"></div>
+            <h3>PASSEIOS EM RIOS</h3>
+            <p>Navegação pelas águas calmas e represas da região.</p>
+          </a>
+          <a href="experiencias.html" class="cartao-preview">
+            <div><img loading="lazy" src="img/trilha.png" alt="Trilha ecológica em área alagada"></div>
+            <h3>TRILHAS E PASSEIOS</h3>
+            <p>Expedições que exploram áreas alagadas e antigas comunidades de pescadores.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="municipios" class="secao-municipios">
+      <div class="container">
+        <div class="cabecalho-com-link">
+          <p class="rotulo">MUNICÍPIOS</p>
+          <a href="#municipios" class="link-vertodos" id="municipios-toggle" aria-controls="municipios-lista" aria-expanded="true">Ver todos</a>
+        </div>
+
+        <div class="cartoes-flex cartoes-3" id="municipios-lista">
+          <article class="cartao-municipio" id="municipio-mirandopolis">
+            <div class="placeholder-img municipio-foto"><img src="../Imagens%20Cidades/Mirandopolis.jpg" alt="Letreiro &quot;Eu amo Mirandópolis&quot;" loading="lazy" decoding="async"></div>
+            <h3>Mirandópolis</h3>
+            <p class="municipio-chamada">Igreja Matriz São João Batista e a Comunidade Yuba</p>
+            <dl class="municipio-dados">
+              <dt>População</dt><dd>27.983 habitantes (Censo 2022)</dd>
+              <dt>Economia</dt><dd>A agroindústria canavieira é a base econômica local, com a Usina Mundial como destaque. PIB per capita de R$ 24.753,46 (IBGE, 2021).</dd>
+              <dt>Flora e Fauna</dt>
+              <dd><strong>Rios:</strong> Rio Aguapeí; o município fica no espigão divisor dos rios Tietê e Aguapeí.<br><strong>Fauna:</strong> Na mata de várzea do Aguapeí são vistos capivaras, quatis, gambás e tatus. Na região: tuiuiú, capivara, colhereiro, jacaré-de-papo-amarelo e binguá.<br><strong>Flora:</strong> Floresta estacional semidecidual aluvial às margens do Aguapeí. Bioma Mata Atlântica (IBGE).</dd>
+              <dt>Turismo</dt><dd>Igreja Matriz São João Batista (cartão-postal), Comunidade Yuba (cultura japonesa), Bosque Municipal, Praça Manoel Alves de Athaide e pesqueiros como o Ninho dos Piriquitus e o do David.</dd>
+            </dl>
+            <a href="https://www.google.com/maps/search/?api=1&query=Mirandópolis%2C+SP" class="btn btn-primario btn-pequeno" target="_blank" rel="noopener">Ver no Google Maps</a>
+          </article>
+          <article class="cartao-municipio" id="municipio-castilho">
+            <div class="placeholder-img municipio-foto"><img src="../Imagens%20Cidades/Castilho.jpg" alt="Letreiro &quot;Eu amo Castilho&quot; com fonte ao fundo" loading="lazy" decoding="async"></div>
+            <h3>Castilho</h3>
+            <p class="municipio-chamada">Pesca esportiva, natureza e biodiversidade</p>
+            <dl class="municipio-dados">
+              <dt>População</dt><dd>19.977 habitantes (Censo 2022)</dd>
+              <dt>Economia</dt><dd>A produção agrícola é baseada na pecuária. Pesca esportiva e turismo ribeirinho são marcas do município, conhecido como paraíso do pescador, além da cachaça artesanal do Engenho São João.</dd>
+              <dt>Flora e Fauna</dt>
+              <dd><strong>Rios:</strong> Rios Paraná, Tietê e Aguapeí (também chamado Rio Feio), além do lago da Usina de Jupiá.<br><strong>Fauna:</strong> Na Foz do Rio Aguapeí vivem o cervo-do-pantanal (ameaçado de extinção), capivaras, jacarés e antas; entre as aves, garças, anhumas, tuiuiús, corujas, araras, tucanos, maritacas e papagaios. Peixes: pacu, piau, dourado, barbado, piapara e pintado.<br><strong>Flora:</strong> RPPN Foz do Aguapeí e Parque Estadual do Aguapeí; orquidário entre os atrativos locais. Bioma Mata Atlântica (IBGE).</dd>
+              <dt>Turismo</dt><dd>Mini Pantanal Paulista (Foz do Aguapeí), passeio de barco com guias piloteiros, trilha “Conheça Castilho Pedalando” (mais de 65 km), pesca esportiva, Marina Urubupungá, Engenho São João e Igreja e Gruta de Nossa Senhora das Graças.</dd>
+            </dl>
+            <a href="https://www.google.com/maps/search/?api=1&query=Castilho%2C+SP" class="btn btn-primario btn-pequeno" target="_blank" rel="noopener">Ver no Google Maps</a>
+          </article>
+          <article class="cartao-municipio" id="municipio-rubiacea">
+            <div class="placeholder-img municipio-foto"><img src="../Imagens%20Cidades/Rubiacea.jpg" alt="Letreiro &quot;Eu amo Rubiácea&quot; em praça com palmeiras" loading="lazy" decoding="async"></div>
+            <h3>Rubiácea</h3>
+            <p class="municipio-chamada">Entre os rios Aguapeí e Tietê</p>
+            <dl class="municipio-dados">
+              <dt>População</dt><dd>2.700 habitantes (Censo 2022)</dd>
+              <dt>Economia</dt><dd>A agropecuária é a base da economia regional (Baixo Tietê). PIB per capita de R$ 24.710,59 (IBGE, 2021).</dd>
+              <dt>Flora e Fauna</dt>
+              <dd><strong>Rios:</strong> Fica no divisor de águas entre os rios Aguapeí e Tietê.<br><strong>Fauna:</strong> Na região: tuiuiú, capivara, colhereiro, jacaré-de-papo-amarelo e binguá.<br><strong>Flora:</strong> Bioma Mata Atlântica (IBGE).</dd>
+              <dt>Turismo</dt><dd>Atrativos ainda não catalogados no Guia de Rotas Turísticas do Estado de São Paulo.</dd>
+            </dl>
+            <a href="https://www.google.com/maps/search/?api=1&query=Rubiácea%2C+SP" class="btn btn-primario btn-pequeno" target="_blank" rel="noopener">Ver no Google Maps</a>
+          </article>
+          <article class="cartao-municipio" id="municipio-andradina">
+            <div class="placeholder-img municipio-foto"><img src="../Imagens%20Cidades/Andradina.jpg" alt="Letreiro &quot;Eu amo Andradina&quot; diante do pórtico de entrada da cidade" loading="lazy" decoding="async"></div>
+            <h3>Andradina</h3>
+            <p class="municipio-chamada">Cultura, eventos e experiências que conectam a região.</p>
+            <dl class="municipio-dados">
+              <dt>População</dt><dd>59.783 habitantes (Censo 2022)</dd>
+              <dt>Economia</dt><dd>Cidade-polo do extremo noroeste paulista e Terra do Rei do Gado, em referência a Antônio Joaquim de Andrade, maior pecuarista do Brasil. PIB per capita de R$ 49.703,65 (IBGE, 2021).</dd>
+              <dt>Flora e Fauna</dt>
+              <dd><strong>Rios:</strong> Rio Tietê, ao norte do município.<br><strong>Fauna:</strong> Na região: tuiuiú, capivara, colhereiro, jacaré-de-papo-amarelo e binguá.<br><strong>Flora:</strong> Bioma Mata Atlântica (IBGE).</dd>
+              <dt>Turismo</dt><dd>Thermas Acqualinda (parque aquático), Bufalare Cavalgare (búfalos, centro hípico e trilha off-road), Centro Cultural Pioneiros, Praça Céu das Artes, Casa da Cultura Cora Coralina, Memorial Adélio Sarro e turismo religioso.</dd>
+            </dl>
+            <a href="https://www.google.com/maps/search/?api=1&query=Andradina%2C+SP" class="btn btn-primario btn-pequeno" target="_blank" rel="noopener">Ver no Google Maps</a>
+          </article>
+          <article class="cartao-municipio" id="municipio-pereira-barreto">
+            <div class="placeholder-img municipio-foto"><img src="../Imagens%20Cidades/Pereira_Barreto.jpg" alt="Letreiro &quot;Eu amo Pereira Barreto&quot;" loading="lazy" decoding="async"></div>
+            <h3>Pereira Barreto</h3>
+            <p class="municipio-chamada">Praia fluvial no Tietê e o Canal de Pereira Barreto</p>
+            <dl class="municipio-dados">
+              <dt>População</dt><dd>24.095 habitantes (Censo 2022)</dd>
+              <dt>Economia</dt><dd>A agropecuária é a base da economia regional (Baixo Tietê). O turismo de praia fluvial, passeios de barco e pesca esportiva movimenta o município, marcado pela colonização japonesa.</dd>
+              <dt>Flora e Fauna</dt>
+              <dd><strong>Rios:</strong> Rio Tietê e Rio São José dos Dourados; o Canal de Pereira Barreto liga os reservatórios de Três Irmãos e Ilha Solteira.<br><strong>Fauna:</strong> Diversas espécies de peixes do Tietê são servidas na Praia Pôr do Sol. Na região: tuiuiú, capivara, colhereiro, jacaré-de-papo-amarelo e binguá.<br><strong>Flora:</strong> Bioma Mata Atlântica (IBGE).</dd>
+              <dt>Turismo</dt><dd>Praia Pôr do Sol, Canal de Pereira Barreto (segundo maior canal artificial de água doce do mundo), Museu Histórico da Colonização, Praça da Bandeira com o monumento GO-JU-NO-TO e o Relógio 4 Faces.</dd>
+            </dl>
+            <a href="https://www.google.com/maps/search/?api=1&query=Pereira+Barreto%2C+SP" class="btn btn-primario btn-pequeno" target="_blank" rel="noopener">Ver no Google Maps</a>
+          </article>
+          <article class="cartao-municipio" id="municipio-valparaiso">
+            <div class="placeholder-img municipio-foto"><img src="../Imagens%20Cidades/Valparaiso.jpg" alt="Letreiro &quot;Eu amo Valparaíso&quot; com a estátua do Cristo ao fundo" loading="lazy" decoding="async"></div>
+            <h3>Valparaíso</h3>
+            <p class="municipio-chamada">Cultura oriental, ferrovia e trilhas para motos</p>
+            <dl class="municipio-dados">
+              <dt>População</dt><dd>24.241 habitantes (Censo 2022)</dd>
+              <dt>Economia</dt><dd>PIB per capita de R$ 45.529,09 (IBGE, 2021). A Estação Ferroviária, inaugurada em 1932, deu início ao comércio e impulsionou o crescimento da cidade.</dd>
+              <dt>Flora e Fauna</dt>
+              <dd><strong>Rios:</strong> Rio Aguapeí.<br><strong>Fauna:</strong> Na região: tuiuiú, capivara, colhereiro, jacaré-de-papo-amarelo e binguá.<br><strong>Flora:</strong> Bioma Mata Atlântica (IBGE).</dd>
+              <dt>Turismo</dt><dd>Praça Oscar de Arruda (Feira da Lua às quartas-feiras, com homenagens às colônias japonesa e italiana), Estação Ferroviária, Pista de Caminhada e trilhas para motos.</dd>
+            </dl>
+            <a href="https://www.google.com/maps/search/?api=1&query=Valparaíso%2C+SP" class="btn btn-primario btn-pequeno" target="_blank" rel="noopener">Ver no Google Maps</a>
+          </article>
+          <article class="cartao-municipio" id="municipio-sud-mennucci">
+            <div class="placeholder-img municipio-foto"><img src="../Imagens%20Cidades/Sud_Mennucci.jpg" alt="Letreiro &quot;Eu amo Sud Mennucci&quot; iluminado à noite" loading="lazy" decoding="async"></div>
+            <h3>Sud Mennucci</h3>
+            <p class="municipio-chamada">Pesca esportiva e lazer entre os rios Tietê e São José dos Dourados.</p>
+            <dl class="municipio-dados">
+              <dt>População</dt><dd>7.355 habitantes (Censo 2022)</dd>
+              <dt>Economia</dt><dd>A agropecuária é a base da economia regional (Baixo Tietê). PIB per capita de R$ 29.307,88 (IBGE, 2021).</dd>
+              <dt>Flora e Fauna</dt>
+              <dd><strong>Rios:</strong> Fica entre os rios Tietê e São José dos Dourados.<br><strong>Fauna:</strong> Na região: tuiuiú, capivara, colhereiro, jacaré-de-papo-amarelo e binguá.<br><strong>Flora:</strong> Bioma Mata Atlântica (IBGE).</dd>
+              <dt>Turismo</dt><dd>Integra as cidades da Rota Pantanal Paulista; atrativos ainda não detalhados no Guia de Rotas Turísticas do Estado de São Paulo.</dd>
+            </dl>
+            <a href="https://www.google.com/maps/search/?api=1&query=Sud+Mennucci%2C+SP" class="btn btn-primario btn-pequeno" target="_blank" rel="noopener">Ver no Google Maps</a>
+          </article>
+          <article class="cartao-municipio" id="municipio-bento-de-abreu">
+            <div class="placeholder-img municipio-foto"><img src="../Imagens%20Cidades/Bento_de_Abreu.jpg" alt="Monumento do Cristo na entrada de Bento de Abreu" loading="lazy" decoding="async"></div>
+            <h3>Bento de Abreu</h3>
+            <p class="municipio-chamada">Interior da bacia do Rio Aguapeí</p>
+            <dl class="municipio-dados">
+              <dt>População</dt><dd>2.606 habitantes (Censo 2022)</dd>
+              <dt>Economia</dt><dd>A agropecuária é a base da economia regional (Baixo Tietê). PIB per capita de R$ 69.504,55 (IBGE, 2021).</dd>
+              <dt>Flora e Fauna</dt>
+              <dd><strong>Rios:</strong> Bacia do Rio Aguapeí, entre os ribeirões Pimenta e do Sapé.<br><strong>Fauna:</strong> Na região: tuiuiú, capivara, colhereiro, jacaré-de-papo-amarelo e binguá.<br><strong>Flora:</strong> Bioma Mata Atlântica (IBGE).</dd>
+              <dt>Turismo</dt><dd>Atrativos ainda não catalogados no Guia de Rotas Turísticas do Estado de São Paulo.</dd>
+            </dl>
+            <a href="https://www.google.com/maps/search/?api=1&query=Bento+de+Abreu%2C+SP" class="btn btn-primario btn-pequeno" target="_blank" rel="noopener">Ver no Google Maps</a>
+          </article>
+          <article class="cartao-municipio" id="municipio-itapura">
+            <div class="placeholder-img municipio-foto"><img src="../Imagens%20Cidades/Itapura.png" alt="Letreiro &quot;Eu amo Itapura&quot;" loading="lazy" decoding="async"></div>
+            <h3>Itapura</h3>
+            <p class="municipio-chamada">Foz do Tietê, mergulho e pesca esportiva</p>
+            <dl class="municipio-dados">
+              <dt>População</dt><dd>3.979 habitantes (Censo 2022)</dd>
+              <dt>Economia</dt><dd>A pesca esportiva e seus torneios movimentam a cidade. PIB per capita de R$ 20.950,66 (IBGE, 2021).</dd>
+              <dt>Flora e Fauna</dt>
+              <dd><strong>Rios:</strong> Rio Tietê (Itapura é a última cidade ribeirinha, a 5 km da foz) e Rio Paraná.<br><strong>Fauna:</strong> Peixes: tucunaré azul e amarelo, traíra, pacu, tilápia, corvina e piau. Na região: tuiuiú, capivara, colhereiro, jacaré-de-papo-amarelo e binguá.<br><strong>Flora:</strong> Bioma Mata Atlântica (IBGE).</dd>
+              <dt>Turismo</dt><dd>Encontro das águas dos rios Tietê e Paraná, Prainha Municipal Yoshiaki Ano, áreas de mergulho (usina submersa, Vapor Tamandathay e ruínas da cidade antiga), Cachoeira do Córrego da Onça, Festa do Peão e torneio Tucuna Free.</dd>
+            </dl>
+            <a href="https://www.google.com/maps/search/?api=1&query=Itapura%2C+SP" class="btn btn-primario btn-pequeno" target="_blank" rel="noopener">Ver no Google Maps</a>
+          </article>
+          <article class="cartao-municipio" id="municipio-ilha-solteira">
+            <div class="placeholder-img municipio-foto"><img src="../Imagens%20Cidades/Ilha_Solteira.jpg" alt="Letreiro colorido &quot;Eu amo Ilha Solteira&quot; em praça arborizada" loading="lazy" decoding="async"></div>
+            <h3>Ilha Solteira</h3>
+            <p class="municipio-chamada">Praias fluviais, marina e o pôr do sol no Rio Paraná</p>
+            <dl class="municipio-dados">
+              <dt>População</dt><dd>25.549 habitantes (Censo 2022)</dd>
+              <dt>Economia</dt><dd>A Usina Hidrelétrica de Ilha Solteira, no Rio Paraná, é a maior construída pela CESP e marca a história local. A cidade também atrai competidores de todo o Brasil para torneios de pesca esportiva. PIB per capita de R$ 26.261,81 (IBGE, 2021).</dd>
+              <dt>Flora e Fauna</dt>
+              <dd><strong>Rios:</strong> Rio Paraná, com a ilha fluvial que deu nome à cidade e o arquipélago das Cinco Ilhas.<br><strong>Fauna:</strong> As Ilhas do Rio Paraná, Área de Proteção Ambiental, abrigam espécies nativas da flora e da fauna regionais; a revoada de araras-canindé na Praça das Araras atrai visitantes, e os restaurantes servem peixes típicos da região. Na região: tuiuiú, capivara, colhereiro, jacaré-de-papo-amarelo e binguá.<br><strong>Flora:</strong> Flora nativa regional nas ilhas do Rio Paraná (Área de Proteção Ambiental). Biomas Cerrado e Mata Atlântica (IBGE).</dd>
+              <dt>Turismo</dt><dd>Praia Catarina (primeira praia fluvial do Brasil com acessibilidade para cadeirantes), Marina, Paredão (pôr do sol), Usina Hidrelétrica, Praça das Araras, Ilhas do Rio Paraná, Cidade da Criança e Monumento aos Barrageiros com a Fonte Luminosa.</dd>
+            </dl>
+            <a href="https://www.google.com/maps/search/?api=1&query=Ilha+Solteira%2C+SP" class="btn btn-primario btn-pequeno" target="_blank" rel="noopener">Ver no Google Maps</a>
+          </article>
+          <article class="cartao-municipio" id="municipio-suzanapolis">
+            <div class="placeholder-img municipio-foto"><img src="../Imagens%20Cidades/Suzanapolis.png" alt="Letreiro &quot;Bem-vindo à Suzanápolis&quot;" loading="lazy" decoding="async"></div>
+            <h3>Suzanápolis</h3>
+            <p class="municipio-chamada">Rio São José dos Dourados e a Mata da Suzana</p>
+            <dl class="municipio-dados">
+              <dt>População</dt><dd>3.408 habitantes (Censo 2022)</dd>
+              <dt>Economia</dt><dd>PIB per capita de R$ 84.169,56 (IBGE, 2021). Dados setoriais da economia não foram localizados nas fontes consultadas.</dd>
+              <dt>Flora e Fauna</dt>
+              <dd><strong>Rios:</strong> Rio São José dos Dourados (cerca de 75,67 km dentro do município) e 14 córregos.<br><strong>Fauna:</strong> No Rio São José dos Dourados há tucunaré, corvina, porquinho, tilápia e pacu, e as corredeiras favorecem a piracema do dourado. Na região: tuiuiú, capivara, colhereiro, jacaré-de-papo-amarelo e binguá.<br><strong>Flora:</strong> Mata da Suzana, reserva florestal rica em fauna e flora, com 1.918 hectares (cerca de 5,8% do território). Bioma Mata Atlântica (IBGE).</dd>
+              <dt>Turismo</dt><dd>Banhos, pesca e passeios de barco no Rio São José dos Dourados e nos córregos; Mata da Suzana e antiga fazenda, com plano de restauração e visitação (projeto de lei da Alesp, 2018). Integra a Rota Pantanal Paulista.</dd>
+            </dl>
+            <a href="https://www.google.com/maps/search/?api=1&query=Suzanápolis%2C+SP" class="btn btn-primario btn-pequeno" target="_blank" rel="noopener">Ver no Google Maps</a>
+          </article>
+        </div>
+        <p class="municipios-fonte">Fontes: IBGE (Censo 2022 e PIB per capita 2021; histórico municipal), Guia de Rotas Turísticas do Estado de São Paulo (Rota Pantanal Paulista), Relatório de Situação da Bacia do Baixo Tietê (CBH-BT) estudos regionais e projeto de lei da Assembleia Legislativa (Suzanápolis).</p>
+      </div>
+    </section>
+
+    <section id="natureza" class="secao-natureza">
+      <div class="container">
+        <p class="rotulo rotulo-claro">NATUREZA</p>
+        <div class="cartoes-flex cartoes-4">
+          <article class="cartao-natureza">
+            <div> <img loading="lazy" src="img/rios e lagoas.webp" alt="Rio e lagoa no Pantanal Paulista"></div>
+            <h3>RIOS E LAGOAS</h3>
+            <p>Águas que dão vida à região e formam paisagens únicas.</p>
+          </article>
+          <article class="cartao-natureza">
+            <div> <img loading="lazy" src="img/fauna.png" alt="Fauna do Pantanal Paulista"></div>
+            <h3>FAUNA</h3>
+            <p>Uma biodiversidade incrível que encanta e inspira.</p>
+          </article>
+          <article class="cartao-natureza">
+            <div> <img loading="lazy" src="img/flora.png" alt="Flora do Pantanal Paulista"></div>
+            <h3>FLORA</h3>
+            <p>Vegetação exuberante que mantém o equilíbrio da vida.</p>
+          </article>
+          <article class="cartao-natureza">
+            <div> <img loading="lazy" src="img/paisagemm.png" alt="Paisagem natural do Pantanal Paulista"></div>
+            <h3>PAISAGENS</h3>
+            <p>Cenários de tirar o fôlego em cada estação do ano.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao-especies">
+      <div class="container">
+        <h2 class="titulo-secao">Espécies que você pode encontrar</h2>
+        <div class="cartoes-flex cartoes-5">
+          <article class="cartao-especie">
+            <div><img loading="lazy" src="img/tuiuiu.png" alt="Tuiuiú, ave símbolo do Pantanal"></div>
+            <h3>TUIUIÚ</h3>
+            <p>A ave símbolo do Pantanal também marca presença nas áreas alagadas paulistas.</p>
+          </article>
+          <article class="cartao-especie">
+            <div><img loading="lazy" src="img/capivara.png" alt="Capivara à beira d’água"></div>
+            <h3>CAPIVARA</h3>
+            <p>O maior roedor do mundo, abundante à beira d'água.</p>
+          </article>
+          <article class="cartao-especie">
+            <div><img loading="lazy" src="img/colhereiro.png" alt="Colhereiro, ave de bico em formato de colher"></div>
+            <h3>COLHEREIRO</h3>
+            <p>Ave de grande porte, facilmente reconhecida pelo seu bico em formato de colher.</p>
+          </article>
+          <article class="cartao-especie">
+            <div><img loading="lazy" src="img/jacare.png" alt="Jacaré-de-papo-amarelo"></div>
+            <h3>JACARÉ-DE-PAPO-AMARELO</h3>
+            <p>O crocodiliano típico dos alagados paulistas.</p>
+          </article>
+          <article class="cartao-especie">
+            <div><img loading="lazy" src="img/bingua.png" alt="Binguá, ave aquática preta"></div>
+            <h3>BINGUÁ</h3>
+            <p>Ave aquática preta muito comum nos trechos de lagos e rios.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ (igual em todas as páginas) -->
+  <footer class="rodape">
+    <div class="container">
+      <div class="rodape-topo">
+        <p class="rodape-logo">Pantanal Paulista</p>
+      </div>
+      <div class="rodape-colunas">
+        <div class="rodape-coluna">
+          <h4>Institucional</h4>
+          <ul>
+            <li><a href="../index.html#sobre-regiao">Sobre a região</a></li>
+            <li><a href="descubra.html#natureza">Conservação</a></li>
+            <li><a href="pesca.html#pesca-responsavel">Boas práticas</a></li>
+            <li><a href="https://www.turismo.sp.gov.br/sec_turismo" target="_blank" rel="noopener">Notícias</a></li>
+            <li><a href="empresas.html#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="rodape-coluna">
+          <h4>Para o visitante</h4>
+          <ul>
+            <li><a href="descubra.html#mapa">Guias e Mapas</a></li>
+          </ul>
+        </div>
+        <div class="rodape-coluna">
+          <h4>Siga e compartilhe</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/rtpantanal/" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+        <div class="rodape-coluna rodape-aliado">
+          <h4>Seja um aliado</h4>
+          <p>O turismo consciente transforma. Apoie a conservação da natureza.</p>
+          <a href="empresas.html" class="link-saiba-mais">Saiba como ajudar →</a>
+        </div>
+      </div>
+      <div class="rodape-base">
+        <p>© Pantanal Paulista — Turismo Regional</p>
+        <a href="mailto:contato@pantanalpaulista.tur.br">contato@pantanalpaulista.tur.br</a>
+      </div>
+    </div>
+  </footer>
+
+<script src="config.js"></script>
+  <script src="descubra.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,525 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth; /* Rolagem suave ao clicar em links âncora (#) */
+  }
+  
+  body {
+    font-family: Georgia, 'Times New Roman', serif; /* Fonte serifada para títulos/corpo, similar ao protótipo */
+    color: #222222;
+    line-height: 1.6;
+    background-color: #FFFFFF;
+  }
+  
+  /* Títulos usam a mesma família serifada, deixado explícito para clareza */
+  h1, h2, h3, h4 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: normal;
+    color: #222222;
+  }
+  
+  /* Padroniza links: remove sublinhado e herda a cor do texto */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  
+  /* ========================================================
+     CONTAINER
+     Centraliza o conteúdo e limita a largura máxima em telas
+     grandes, com respiro lateral (padding) em telas menores.
+  ======================================================== */
+  
+  .container {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  /* ========================================================
+     BOTÕES
+  ======================================================== */
+  
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .btn-primario {
+    background-color: #1B4332;
+    color: #FFFFFF;
+  }
+  
+  .btn-primario:hover {
+    background-color: #143024;
+  }
+  
+  /* Botão do cabeçalho tem um leve ajuste de tamanho */
+  .btn-header {
+    padding: 10px 18px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  
+  /* ========================================================
+     PLACEHOLDERS DE IMAGEM
+     Retângulos cinza-esverdeados que representam onde as
+     imagens reais devem ser inseridas (basta trocar a <div>
+     por uma tag <img src="..."> mantendo a mesma classe/local).
+  ======================================================== */
+  
+  .placeholder-img {
+    background-color: #C4CBB7;
+    width: 100%;
+    min-height: 180px;
+    border-radius: 8px;
+  }
+  
+  .placeholder-experiencia {
+    min-height: 260px;
+    flex: 1 1 45%; /* ocupa metade do bloco, ao lado do texto (sem isso o width:100% jogava a imagem para cima do texto) */
+  }
+  
+  /* ========================================================
+     CABEÇALHO / MENU DE NAVEGAÇÃO
+  ======================================================== */
+  
+  .header {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E5E1D8;
+    position: sticky; /* Cabeçalho fixo ao rolar a página */
+    top: 0;
+    z-index: 100;
+  }
+  
+  .header-container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .logo {
+    font-size: 20px;
+    color: #1B4332;
+    font-weight: bold;
+  }
+  
+  .nav-lista {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  
+  .nav-lista a {
+    font-size: 15px;
+    color: #222222;
+  }
+  
+  .nav-lista a:hover {
+    color: #1B4332;
+  }
+  
+  /* Destaca no menu a página em que o usuário está no momento */
+  .nav-lista a.ativo {
+    color: #1B4332;
+    font-weight: bold;
+    border-bottom: 2px solid #1B4332;
+  }
+  
+  /* ========================================================
+     TÍTULOS DE SEÇÃO GENÉRICOS
+  ======================================================== */
+  
+  .titulo-secao {
+    font-size: 26px;
+    margin-bottom: 24px;
+  }
+  
+  /* ========================================================
+     CARTÕES EM FLEXBOX
+     Layout de cartões feito com Flexbox e flex-wrap, sem
+     utilizar display:grid nem frameworks como Bootstrap.
+  ======================================================== */
+  
+  .cartoes-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  
+  /* Cada cartão ocupa ~33% da largura em telas grandes (3 colunas) */
+  .cartoes-flex .cartao {
+    flex: 1 1 calc(33.333% - 24px);
+    background-color: #F5F1E8;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  
+  .cartao-titulo {
+    font-size: 18px;
+    margin: 12px 0 6px 0;
+  }
+  
+  /* ========================================================
+     BLOCO DE DUAS COLUNAS
+  ======================================================== */
+  
+  /* Bloco de duas colunas: imagem + texto lado a lado */
+  .container-duas-colunas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: center;
+  }
+  
+  /* ========================================================
+     PÁGINAS INTERNAS (Experiências e Eventos)
+  ======================================================== */
+  
+  .secao-pagina-interna {
+    padding: 56px 0;
+  }
+  
+  /* Seção que termina com um bloco que já tem margem inferior: evita somar os dois espaços */
+  .secao-sem-respiro-inferior {
+    padding-bottom: 0;
+  }
+  
+  .titulo-pagina {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  
+  .subtitulo-pagina {
+    font-size: 16px;
+    color: #4B5563;
+    margin-bottom: 32px;
+  }
+  
+  /* Blocos de experiência (imagem + texto lado a lado) */
+  .bloco-experiencia {
+    margin-bottom: 56px;
+  }
+  
+  /* Inverte a ordem visual do bloco (imagem à direita) usando row-reverse */
+  .bloco-invertido {
+    flex-direction: row-reverse;
+  }
+  
+  /* Coluna de texto do bloco de experiência */
+  .experiencia-texto {
+    flex: 1 1 45%;
+  }
+  
+  .experiencia-texto h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .experiencia-texto p {
+    color: #4B5563;
+    margin-bottom: 16px;
+  }
+  
+  /* Bloco "Mais experiências" */
+  .secao-mais-experiencias {
+    background-color: #F5F1E8;
+    padding: 48px 0;
+  }
+  
+  /* ========================================================
+     SEÇÃO EVENTOS (âncora #eventos, dentro da página Experiências)
+  ======================================================== */
+  
+  .filtros-eventos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  
+  .btn-filtro {
+    padding: 10px 18px;
+    border-radius: 6px;
+    border: 1px solid #E5E1D8;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+  }
+  
+  /* Estado ativo do filtro (visual estático; filtragem real requer JavaScript) */
+  .btn-filtro-ativo {
+    background-color: #1B4332;
+    color: #FFFFFF;
+    border-color: #1B4332;
+  }
+  
+  .lista-eventos {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .item-evento {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E1D8;
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+  
+  .data-evento {
+    background-color: #1B4332;
+    color: #FFFFFF;
+    font-size: 12px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+  
+  .info-evento h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  
+  .info-evento p {
+    font-size: 14px;
+    color: #4B5563;
+  }
+  
+  /* ========================================================
+   RODAPÉ (padrão único, igual em todas as páginas)
+======================================================== */
+.rodape { background-color: #1B4332; color: #FFFFFF; padding: 56px 0 28px; }
+.rodape-logo { font-size: 20px; margin-bottom: 32px; letter-spacing: 0.01em; }
+.rodape-colunas { display: flex; flex-wrap: wrap; gap: 32px; margin-bottom: 40px; }
+.rodape-coluna { flex: 1 1 200px; }
+.rodape-coluna h4 { color: rgba(255,255,255,0.55); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px; }
+.rodape-coluna ul li { margin-bottom: 10px; }
+.rodape-coluna a { font-size: 14px; opacity: 0.85; transition: opacity 0.15s; }
+.rodape-coluna a:hover { opacity: 1; }
+.rodape-aliado p { font-size: 13px; opacity: 0.75; margin-bottom: 12px; line-height: 1.6; }
+.link-saiba-mais { font-size: 14px; font-weight: bold; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 2px; transition: border-color 0.2s; }
+.link-saiba-mais:hover { border-color: #FFFFFF; }
+.rodape-base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.12); font-size: 13px; opacity: 0.7; }
+
+/* Eventos: ações, filtros e itens dinâmicos */
+[hidden] { display: none !important; }
+.btn-filtro:hover { border-color: #1B4332; }
+.cartoes-flex .cartao p { font-size: 14px; color: #4B5563; }
+.info-evento .evento-desc { margin-top: 4px; }
+.info-evento a { display: inline-block; margin-top: 6px; font-size: 14px; color: #1B4332; border-bottom: 1px solid #1B4332; }
+
+/* ========================================================
+     MEDIA QUERIES - RESPONSIVIDADE
+     Ajustes progressivos para celulares.
+  ======================================================== */
+  
+  /* ---- Celulares (telas até 600px) ---- */
+  @media (max-width: 600px) {
+  
+    /* Cabeçalho: menu e botão quebram para nova linha, empilhados */
+    .header-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-lista {
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+  
+    .btn-header {
+      width: 100%;
+      text-align: center;
+    }
+  
+    /* Cartões passam a ocupar 100% da largura (1 coluna) */
+    .cartoes-flex .cartao {
+      flex: 1 1 100%;
+    }
+  
+    /* Blocos de duas colunas (experiências) empilham */
+    .container-duas-colunas {
+      flex-direction: column;
+    }
+  
+    /* Blocos invertidos voltam para a ordem normal em telas pequenas */
+    .bloco-invertido {
+      flex-direction: column;
+    }
+  
+    .titulo-pagina {
+      font-size: 26px;
+    }
+  
+    /* Item de evento empilha data e informações */
+    .item-evento {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  /* Estas regras estavam aninhadas por engano no @media 600px; agora valem em todas as telas */
+  /* Alterações a mais que eu fiz (Yasmim)*/
+
+    /* Imagem dos blocos principais */
+.bloco-experiencia > img {
+  flex: 1 1 45%;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Imagens dos cartões */
+.cartao img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Imagem de destaque das páginas internas */
+.imagem-destaque {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 25px 0;
+}
+
+/* Conteúdo informativo */
+.conteudo-informativo {
+  margin-top: 30px;
+}
+
+.conteudo-informativo h2 {
+  margin: 30px 0 15px;
+}
+
+.conteudo-informativo p {
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 600px) {
+  .imagem-destaque {
+    height: 260px;
+  }
+}
+
+.cartoes-flex .cartao img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.secao-pesca {
+    margin: 40px 0;
+    line-height: 1.7;
+}
+
+.secao-pesca h2 {
+    margin-bottom: 20px;
+    color: #1B4332;
+}
+
+.secao-pesca p {
+    margin-bottom: 16px;
+    text-align: justify;
+}
+
+.secao-esportes-nauticos {
+    margin: 40px 0;
+    line-height: 1.7;
+}
+
+.secao-esportes-nauticos h2 {
+    margin-bottom: 20px;
+    color: #1B4332;
+}
+
+.secao-esportes-nauticos p {
+    margin-bottom: 16px;
+    text-align: justify;
+}
+
+/* Páginas de detalhe (Pesca e Esportes Náuticos): títulos H1 e H2 no verde da marca,
+   iguais em toda a página (antes só o último H2 era verde) */
+.secao-pagina-interna h2,
+.secao-mais-experiencias h2 {
+  color: #1B4332;
+}
+
+/* Faixa de topo: mesmo padrão das páginas Descubra e Para Empresas (fundo verde, título branco) */
+.rotulo { text-transform: uppercase; font-size: 12px; letter-spacing: 1px; margin-bottom: 8px; }
+.rotulo-claro { color: #FFFFFF; opacity: 0.85; }
+.pagina-topo { background-color: #1B4332; color: #FFFFFF; }
+.pagina-topo .titulo-pagina { color: #FFFFFF; font-size: 34px; margin: 8px 0 12px; }
+.pagina-topo .subtitulo-pagina { color: #FFFFFF; opacity: 0.9; max-width: 560px; margin-bottom: 0; }
+
+/* Destaque para divulgação de eventos */
+.eventos-acoes { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; background-color: #F5F1E8; border-left: 4px solid #1B4332; border-radius: 8px; padding: 24px 28px; margin-bottom: 32px; }
+.eventos-acoes-texto h3 { color: #1B4332; font-size: 20px; margin-bottom: 4px; }
+.eventos-acoes-texto p { color: #4B5563; font-size: 15px; }
+
+/* ========================================================
+   RESPIRO PADRÃO (igual em todas as páginas)
+   seções: 80px (desktop) · 64px (tablet) · 48px (celular)
+   container: 1160px com 24px laterais · grade de cartões: gap 24px
+======================================================== */
+.nav-lista a.ativo { padding-bottom: 2px; }
+.pagina-topo,
+.secao-pagina-interna,
+.secao-mais-experiencias { padding-top: 80px; padding-bottom: 80px; }
+.secao-sem-respiro-inferior { padding-bottom: 0; }
+.bloco-experiencia:last-child { margin-bottom: 80px; }
+/* os <br> usados como espaçador deixam de criar vãos irregulares; o ritmo vem das margens dos títulos */
+.conteudo-informativo br { display: none; }
+.conteudo-informativo .btn { margin-top: 24px; }
+
+@media (max-width: 900px) {
+.pagina-topo,
+.secao-pagina-interna,
+.secao-mais-experiencias { padding-top: 64px; padding-bottom: 64px; }
+}
+@media (max-width: 600px) {
+.pagina-topo,
+.secao-pagina-interna,
+.secao-mais-experiencias { padding-top: 48px; padding-bottom: 48px; }
+}
+.secao-sem-respiro-inferior { padding-bottom: 0; }
+@media (max-width: 992px) { .pagina-topo .titulo-pagina { font-size: 28px; } }
+@media (max-width: 600px) { .pagina-topo .titulo-pagina { font-size: 24px; } .eventos-acoes { padding: 20px; } }

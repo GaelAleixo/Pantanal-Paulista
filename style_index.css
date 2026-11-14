@@ -1,0 +1,741 @@
+/* ========================================================
+   style_index.css — Página Início (index.html)
+   Versão premium: carrossel, grid 2×2, tipografia editorial.
+
+   PALETA
+   #1B4332  Verde escuro (header, hero, rodapé, botões)
+   #143024  Verde mais escuro (hover)
+   #F5F1E8  Creme/bege (fundos de seção)
+   #FFFFFF  Branco
+   #C4CBB7  Cinza-esverdeado (placeholder)
+   #222222  Texto principal
+   #4B5563  Texto secundário
+   #E5E1D8  Bordas sutis
+   #4F6B43  Verde médio (acentos sutis)
+======================================================== */
+
+/* ========================================================
+   RESET
+======================================================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #222222;
+  line-height: 1.7;
+  background-color: #FFFFFF;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: normal;
+  color: #222222;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul { list-style: none; }
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ========================================================
+   CONTAINER
+======================================================== */
+.container {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ========================================================
+   BOTÕES
+======================================================== */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.btn-primario {
+  background-color: #1B4332;
+  color: #FFFFFF;
+}
+
+.btn-primario:hover {
+  background-color: #143024;
+}
+
+.btn-header {
+  padding: 10px 18px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* Botão hero: contorno branco sobre o carrossel */
+.btn-hero {
+  display: inline-block;
+  padding: 14px 32px;
+  border: 2px solid #FFFFFF;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-hero:hover {
+  background-color: #FFFFFF;
+  color: #1B4332;
+}
+
+/* ========================================================
+   CABEÇALHO
+======================================================== */
+.header {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E5E1D8;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.header-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.logo {
+  font-size: 20px;
+  color: #1B4332;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+}
+
+.nav-lista {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.nav-lista a {
+  font-size: 15px;
+  color: #222222;
+  transition: color 0.15s;
+}
+
+.nav-lista a:hover { color: #1B4332; }
+
+.nav-lista a.ativo {
+  color: #1B4332;
+  font-weight: bold;
+  border-bottom: 2px solid #1B4332;
+  padding-bottom: 2px;
+}
+
+/* ========================================================
+   CARROSSEL — HERO
+   Cada .slide ocupa 100% da largura. Apenas o .slide-ativo
+   é visível; os demais têm opacity:0 e pointer-events:none.
+   O conteúdo (texto + botão) fica sobreposto via position.
+======================================================== */
+.secao-hero {
+  position: relative;
+  width: 100%;
+  /* Altura do carrossel: proporcional a ~56.25% (16:9) com mín. e máx. */
+  height: clamp(380px, 56.25vw, 700px);
+  overflow: hidden;
+  background-color: #1B4332; /* cor de fundo enquanto a imagem não carrega */
+}
+
+/* Trilho ocupa o mesmo espaço da seção */
+.carrossel-trilho {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Cada slide é absoluto, cobre todo o trilho */
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
+  pointer-events: none;
+}
+
+.slide.slide-ativo {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Área da imagem dentro do slide */
+.slide-imagem {
+  width: 100%;
+  height: 100%;
+  background-color: #2a5c46; /* placeholder cor até a imagem ser inserida */
+  overflow: hidden;
+}
+
+/* Quando a imagem for inserida, ela vai cobrir toda a área */
+.slide-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Gradiente escuro na base do slide para legibilidade do texto */
+.slide-imagem::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.50) 45%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+  pointer-events: none;
+}
+
+
+/* Legenda discreta no canto inferior esquerdo do slide */
+.slide-legenda {
+  position: absolute;
+  bottom: 72px; /* acima dos dots */
+  left: 32px;
+  z-index: 2;
+}
+
+.legenda-rotulo {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+}
+
+/* ------ TEXTO SOBREPOSTO AO CARROSSEL ------ */
+.hero-texto {
+  position: absolute;
+  bottom: 96px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 780px;
+  padding: 0 32px;
+  text-align: center;
+  z-index: 10;
+  pointer-events: none; /* passagem de clique; só o botão precisa ser clicável */
+}
+
+.hero-texto .btn-hero {
+  pointer-events: auto;
+}
+
+.hero-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.70);
+  margin-bottom: 14px;
+}
+
+.titulo-hero {
+  font-size: clamp(32px, 5vw, 60px);
+  color: #FFFFFF;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.hero-chamada {
+  font-size: clamp(20px, 1.8vw, 24px);
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+/* ------ BOTÕES DE NAVEGAÇÃO PREV / NEXT ------ */
+.carrossel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.55);
+  background-color: rgba(0,0,0,0.25);
+  color: #FFFFFF;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.carrossel-btn:hover {
+  background-color: rgba(0,0,0,0.55);
+  border-color: #FFFFFF;
+}
+
+.carrossel-btn-prev { left: 20px; }
+.carrossel-btn-next { right: 20px; }
+
+/* ------ DOTS ------ */
+.carrossel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.6);
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+  padding: 0;
+}
+
+.dot.ativo {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  transform: scale(1.25);
+}
+
+.dot:hover {
+  border-color: #FFFFFF;
+}
+
+/* ========================================================
+   SEÇÃO INTRO — EDITORIAL
+======================================================== */
+.secao-intro {
+  background-color: #F5F1E8;
+  padding: 80px 0;
+}
+
+.intro-grade {
+  display: flex;
+  gap: 64px;
+  align-items: flex-start;
+}
+
+/* Coluna esquerda: números */
+.intro-numeros {
+  flex: 0 0 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-top: 8px;
+}
+
+.numero-item {
+  padding: 20px 0;
+}
+
+.numero-divisor {
+  height: 1px;
+  background-color: #C4CBB7;
+}
+
+.numero-valor {
+  display: block;
+  font-size: 48px;
+  color: #1B4332;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.numero-valor small {
+  font-size: 20px;
+  margin-left: 4px;
+  opacity: 0.75;
+}
+
+.numero-label {
+  font-size: 13px;
+  color: #4B5563;
+  line-height: 1.4;
+}
+
+/* Coluna direita: editorial */
+.intro-editorial {
+  flex: 1;
+  column-count: 2;      /* texto em 2 colunas: ocupa a largura toda, sem sobra à direita */
+  column-gap: 48px;
+}
+
+.intro-chapeu,
+.intro-titulo { column-span: all; }
+
+.intro-titulo { max-width: 640px; }
+
+.intro-corpo { max-width: none; break-inside: avoid; }
+
+.link-editorial { display: block; width: fit-content; column-span: all; margin-top: 8px; }
+
+.intro-chapeu {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #4F6B43;
+  margin-bottom: 16px;
+}
+
+.intro-titulo {
+  font-size: clamp(22px, 2.8vw, 32px);
+  color: #1B4332;
+  line-height: 1.25;
+  margin-bottom: 24px;
+  max-width: 520px;
+}
+
+.intro-corpo {
+  font-size: 16px;
+  color: #4B5563;
+  line-height: 1.8;
+  margin-bottom: 18px;
+  max-width: 600px;
+}
+
+.link-editorial {
+  display: inline-block;
+  font-size: 15px;
+  color: #1B4332;
+  border-bottom: 1px solid #1B4332;
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+
+.link-editorial:hover { opacity: 0.65; }
+
+/* ========================================================
+   SEÇÃO EXPLORE — GRADE 2 × 2
+======================================================== */
+.secao-explore {
+  padding: 80px 0;
+  background-color: #FFFFFF;
+}
+
+.explore-cabecalho {
+  margin-bottom: 40px;
+}
+
+.titulo-secao {
+  font-size: clamp(24px, 3vw, 34px);
+  color: #1B4332;
+  margin-bottom: 8px;
+}
+
+.titulo-secao-sub {
+  font-size: 15px;
+  color: #4B5563;
+}
+
+/* Grade 2 colunas × 2 linhas no desktop */
+.cartoes-flex {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* matriz 2x2 alinhada ao container */
+  gap: 24px;
+}
+
+/* Cartão */
+.cartao {
+  display: flex;
+  flex-direction: row;        /* imagem à esquerda, texto à direita: imagem menor e sem corte */
+  align-items: center;
+  gap: 24px;
+  padding: 16px;
+  background-color: #F5F1E8;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.cartao:hover {
+  box-shadow: 0 8px 28px rgba(27, 67, 50, 0.14);
+  transform: translateY(-3px);
+}
+
+/* Área da imagem do cartão
+   As imagens enviadas são landscape ~16:9 (1366×768 aprox.)
+   Mantemos proporção 16:9 com padding-top trick            */
+.cartao-imagem {
+  position: relative;
+  flex: 0 0 42%;
+  aspect-ratio: 16 / 9;       /* imagem inteira, sem corte */
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #C4CBB7;
+}
+
+.cartao-imagem img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.35s ease;
+}
+
+.cartao:hover .cartao-imagem img {
+  transform: scale(1.04);
+}
+
+/* Corpo do cartão */
+.cartao-corpo {
+  padding: 8px 8px 8px 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cartao-categoria {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #4F6B43;
+  margin-bottom: 8px;
+}
+
+.cartao-titulo {
+  font-size: 22px;
+  color: #1B4332;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.cartao-texto {
+  font-size: 14px;
+  color: #4B5563;
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.cartao-cta {
+  font-size: 13px;
+  color: #1B4332;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+  align-self: flex-start;
+}
+
+.cartao:hover .cartao-cta {
+  border-color: #1B4332;
+}
+
+/* ========================================================
+   RODAPÉ
+======================================================== */
+.rodape {
+  background-color: #1B4332;
+  color: #FFFFFF;
+  padding: 56px 0 28px;
+}
+
+.rodape-logo {
+  font-size: 20px;
+  margin-bottom: 32px;
+  letter-spacing: 0.01em;
+}
+
+.rodape-colunas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.rodape-coluna { flex: 1 1 200px; }
+
+.rodape-coluna h4 {
+  color: rgba(255,255,255,0.55);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.rodape-coluna ul li { margin-bottom: 10px; }
+
+.rodape-coluna a {
+  font-size: 14px;
+  opacity: 0.85;
+  transition: opacity 0.15s;
+}
+
+.rodape-coluna a:hover { opacity: 1; }
+
+.rodape-aliado p {
+  font-size: 13px;
+  opacity: 0.75;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.link-saiba-mais {
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  padding-bottom: 2px;
+  transition: border-color 0.2s;
+}
+
+.link-saiba-mais:hover { border-color: #FFFFFF; }
+
+.rodape-base {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* ========================================================
+   MEDIA QUERIES
+======================================================== */
+
+/* ---- Tablets grandes (≤ 900px) ---- */
+@media (max-width: 900px) {
+  .intro-grade {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .intro-numeros {
+    flex-direction: row;
+    flex: unset;
+    gap: 0;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .numero-item { flex: 1; padding: 0 16px 0 0; }
+
+  .numero-divisor {
+    width: 1px;
+    height: auto;
+    margin: 0 16px;
+  }
+
+  .titulo-hero { font-size: 36px; }
+
+  .intro-editorial { column-count: 1; }
+  .secao-intro, .secao-explore { padding: 64px 0; }
+}
+
+/* ---- Tablets (≤ 720px): grade de cartões vira 1 coluna ---- */
+@media (max-width: 900px) {
+  .cartoes-flex {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .cartao { flex-direction: column; align-items: stretch; gap: 16px; }
+  .cartao-imagem { flex: none; width: 100%; }
+  .cartao-corpo { padding: 0 8px 8px; }
+  .cartoes-flex {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Celulares (≤ 600px) ---- */
+@media (max-width: 600px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-lista {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .btn-header {
+    width: 100%;
+    text-align: center;
+  }
+
+  .secao-hero {
+    height: clamp(380px, 105vw, 520px);
+  }
+
+  .hero-texto {
+    bottom: 64px;
+    padding: 0 20px;
+  }
+
+  .titulo-hero { font-size: 26px; }
+
+  .hero-chamada { font-size: 14px; }
+
+  .slide-legenda { display: none; }
+
+  .carrossel-btn { display: none; }
+
+  .secao-intro { padding: 48px 0; }
+
+  .secao-explore { padding: 48px 0; }
+
+  .intro-numeros {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .numero-divisor {
+    width: 100%;
+    height: 1px;
+  }
+}
+
+/* Acessibilidade: reduz movimento */
+@media (prefers-reduced-motion: reduce) {
+  .slide { transition: none; }
+  .cartao { transition: none; }
+  html { scroll-behavior: auto; }
+}

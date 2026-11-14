@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <script src="paginas/seguranca.js"></script>
+  <title>Pantanal Paulista - Início</title>
+  <link rel="stylesheet" href="style_index.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">Pantanal Paulista</a>
+      <nav class="nav-principal">
+        <ul class="nav-lista">
+          <li><a href="index.html" class="ativo">Início</a></li>
+          <li><a href="./paginas/descubra.html">Descubra</a></li>
+          <li><a href="./paginas/experiencias.html">Experiências e Eventos</a></li>
+          <li><a href="./paginas/empresas.html">Para Empresas</a></li>
+        </ul>
+      </nav>
+      <a href="./paginas/descubra.html#planeje-visita" class="btn btn-primario btn-header">Planeje sua visita</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ======================================================
+         HERO — CARROSSEL
+         Cada .slide é um espaço para você inserir uma <img>.
+         O carrossel alterna automaticamente (5 s) e responde
+         aos botões e dots de navegação.
+    ======================================================= -->
+    <section class="secao-hero" id="carrossel" role="region" aria-label="Carrossel de imagens da região">
+
+      <!-- Trilho dos slides -->
+      <div class="carrossel-trilho" id="carrossel-trilho">
+
+        <!-- Slide 1 -->
+        <div class="slide" role="group" aria-label="Slide 1 de 2">
+          <div class="slide-imagem">
+            <img src="img/img 1.png" alt="Paisagem do Pantanal Paulista">
+          </div>
+          <div class="slide-legenda">
+            <span class="legenda-rotulo">Natureza & Vida Selvagem</span>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide" role="group" aria-label="Slide 2 de 2">
+          <div class="slide-imagem">
+            <img src="img/esportes-nauticos.png" alt="Esportes náuticos e pesca no Pantanal Paulista">
+          </div>
+          <div class="slide-legenda">
+            <span class="legenda-rotulo">Esportes Náuticos & Pesca</span>
+          </div>
+        </div>
+
+      </div><!-- /carrossel-trilho -->
+
+      <!-- Botões de navegação anterior/próximo -->
+      <button class="carrossel-btn carrossel-btn-prev" id="btn-prev" aria-label="Slide anterior">&#8592;</button>
+      <button class="carrossel-btn carrossel-btn-next" id="btn-next" aria-label="Próximo slide">&#8594;</button>
+
+      <!-- Indicadores (dots) -->
+      <div class="carrossel-dots" role="tablist" aria-label="Slides">
+        <button class="dot ativo" role="tab" aria-selected="true"  aria-label="Slide 1" data-indice="0"></button>
+        <button class="dot"       role="tab" aria-selected="false" aria-label="Slide 2" data-indice="1"></button>
+      </div>
+
+      <!-- Título sobreposto ao carrossel -->
+      <div class="hero-texto">
+        <p class="hero-eyebrow">Noroeste Paulista — 14 municípios</p>
+        <h1 class="titulo-hero">Bem-vindo ao<br>Pantanal Paulista</h1>
+        <p class="hero-chamada">Natureza exuberante, rios imensos e uma cultura hospitaleira<br>esperam por você no extremo oeste de São Paulo.</p>
+        <a href="./paginas/descubra.html" class="btn btn-hero">Explore a região</a>
+      </div>
+
+    </section><!-- /secao-hero -->
+
+    <!-- ======================================================
+         INTRO — TEXTO PREMIUM
+    ======================================================= -->
+    <section class="secao-intro" id="sobre-regiao">
+      <div class="container">
+
+        <div class="intro-grade">
+
+          <!-- Coluna esquerda: números de destaque -->
+          <div class="intro-numeros">
+            <div class="numero-item">
+              <span class="numero-valor">14</span>
+              <span class="numero-label">municípios unidos pelo turismo</span>
+            </div>
+            <div class="numero-divisor"></div>
+            <div class="numero-item">
+              <span class="numero-valor">238<small>mil</small></span>
+              <span class="numero-label">habitantes na região</span>
+            </div>
+            <div class="numero-divisor"></div>
+            <div class="numero-item">
+              <span class="numero-valor">8<small>mil km²</small></span>
+              <span class="numero-label">de território a descobrir</span>
+            </div>
+          </div>
+
+          <!-- Coluna direita: texto editorial -->
+          <div class="intro-editorial">
+            <p class="intro-chapeu">Sobre a região</p>
+            <h2 class="intro-titulo">Uma paisagem que se assemelha ao Pantanal Mato-grossense</h2>
+            <p class="intro-corpo">
+              Banhados pelo rio Tietê, os 14 municípios do CIENSP compartilham fauna, flora e clima únicos no interior paulista. Grandes áreas alagadas, rios como o Paraná, o Aguapeí e o São José dos Dourados compõem cenários de beleza rara — com praias, pesca, esportes náuticos e natureza exuberante a poucos quilômetros das cidades.
+            </p>
+            <p class="intro-corpo">
+              Parques, cachoeiras, capelas históricas, museus, comunidades culturais e uma culinária típica do interior completam um roteiro plural. O <em>trade</em> turístico é sólido: centenas de hotéis, restaurantes e pousadas prontos para receber você.
+            </p>
+            <a href="./paginas/descubra.html" class="link-editorial">Conheça os destinos <span aria-hidden="true">→</span></a>
+          </div>
+
+        </div><!-- /intro-grade -->
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         EXPLORE A REGIÃO — GRADE 2 × 2
+    ======================================================= -->
+    <section class="secao-explore">
+      <div class="container">
+
+        <div class="explore-cabecalho">
+          <h2 class="titulo-secao">Explore a região</h2>
+          <p class="titulo-secao-sub">Escolha uma categoria e mergulhe no que o Pantanal Paulista tem a oferecer</p>
+        </div>
+
+        <!-- Grade 2 × 2 (desktop) → 2 × 1 (tablet) → 1 × 1 (mobile) -->
+        <div class="cartoes-flex">
+
+          <a href="./paginas/descubra.html" class="cartao">
+            <div class="cartao-imagem">
+              <img src="img/mapa-descubra.png" alt="Mapa dos municípios do Pantanal Paulista">
+            </div>
+            <div class="cartao-corpo">
+              <p class="cartao-categoria">Roteiro</p>
+              <h3 class="cartao-titulo">Descubra</h3>
+              <p class="cartao-texto">Municípios, mapas, onde ficar e onde comer na região</p>
+              <span class="cartao-cta">Ver destinos <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+
+          <a href="./paginas/experiencias.html" class="cartao">
+            <div class="cartao-imagem">
+              <img src="img/esportes-nauticos.png" alt="Esportes náuticos e pesca no Pantanal Paulista">
+            </div>
+            <div class="cartao-corpo">
+              <p class="cartao-categoria">Atividades</p>
+              <h3 class="cartao-titulo">Experiências</h3>
+              <p class="cartao-texto">Pesca esportiva, esportes náuticos e contato com a natureza</p>
+              <span class="cartao-cta">Ver experiências <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+
+          <a href="./paginas/experiencias.html#eventos" class="cartao">
+            <div class="cartao-imagem">
+              <img src="img/feiras-eventos.png" alt="Feiras, festivais e eventos culturais da região">
+            </div>
+            <div class="cartao-corpo">
+              <p class="cartao-categoria">Agenda</p>
+              <h3 class="cartao-titulo">Eventos</h3>
+              <p class="cartao-texto">Feiras, festivais culturais e cursos ao longo do ano</p>
+              <span class="cartao-cta">Ver agenda <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+
+          <a href="./paginas/empresas.html" class="cartao">
+            <div class="cartao-imagem">
+              <img src="img/parcerias.png" alt="Parcerias e investimentos na região do Pantanal Paulista">
+            </div>
+            <div class="cartao-corpo">
+              <p class="cartao-categoria">Negócios</p>
+              <h3 class="cartao-titulo">Para Empresas</h3>
+              <p class="cartao-texto">Parcerias estratégicas e oportunidades de investimento</p>
+              <span class="cartao-cta">Saiba mais <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+
+        </div><!-- /cartoes-flex -->
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <div class="container">
+      <div class="rodape-topo">
+        <p class="rodape-logo">Pantanal Paulista</p>
+      </div>
+      <div class="rodape-colunas">
+        <div class="rodape-coluna">
+          <h4>Institucional</h4>
+          <ul>
+            <li><a href="index.html#sobre-regiao">Sobre a região</a></li>
+            <li><a href="./paginas/descubra.html#natureza">Conservação</a></li>
+            <li><a href="./paginas/pesca.html#pesca-responsavel">Boas práticas</a></li>
+            <li><a href="https://www.turismo.sp.gov.br/sec_turismo" target="_blank" rel="noopener">Notícias</a></li>
+            <li><a href="./paginas/empresas.html#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="rodape-coluna">
+          <h4>Para o visitante</h4>
+          <ul>
+            <li><a href="./paginas/descubra.html#mapa">Guias e Mapas</a></li>
+          </ul>
+        </div>
+        <div class="rodape-coluna">
+          <h4>Siga e compartilhe</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/rtpantanal/" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+        <div class="rodape-coluna rodape-aliado">
+          <h4>Seja um aliado</h4>
+          <p>O turismo consciente transforma. Apoie a conservação da natureza.</p>
+          <a href="./paginas/empresas.html" class="link-saiba-mais">Saiba como ajudar →</a>
+        </div>
+      </div>
+      <div class="rodape-base">
+        <p>© Pantanal Paulista — Turismo Regional</p>
+        <a href="mailto:contato@pantanalpaulista.tur.br">contato@pantanalpaulista.tur.br</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================
+       SCRIPT DO CARROSSEL (sem dependências externas)
+  ======================================================= -->
+  <script src="index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <script src="seguranca.js"></script>
+  <title>Pantanal Paulista - Experiências e Eventos</title>
+  <link rel="stylesheet" href="style_experiencias.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO / MENU (igual em todas as páginas) -->
+  <header class="header">
+    <div class="header-container">
+      <a href="../index.html" class="logo">Pantanal Paulista</a>
+
+      <nav class="nav-principal">
+        <ul class="nav-lista">
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="descubra.html">Descubra</a></li>
+          <li><a href="experiencias.html" class="ativo">Experiências e Eventos</a></li>
+          <li><a href="empresas.html">Para Empresas</a></li>
+        </ul>
+      </nav>
+
+      <a href="descubra.html#planeje-visita" class="btn btn-primario btn-header">Planeje sua visita</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ======================================================
+         EXPERIÊNCIAS
+         Título da página + dois blocos imagem/texto
+    ======================================================= -->
+    <section class="pagina-topo">
+      <div class="container">
+        <p class="rotulo rotulo-claro">ATIVIDADES E AGENDA</p>
+        <h1 class="titulo-pagina">Experiências e Eventos</h1>
+        <p class="subtitulo-pagina">Roteiros, trilhas, pesca esportiva e esportes náuticos para todos os perfis de viajante, além da agenda de feiras, festivais e cursos da região.</p>
+      </div>
+    </section>
+
+    <section class="secao-pagina-interna secao-sem-respiro-inferior">
+
+      <!-- Bloco com imagem à esquerda e texto à direita -->
+      <div class="container">
+        <div class="container-duas-colunas bloco-experiencia">
+          <img src="img/pesca esportiva.png" alt="Pesca esportiva nos rios do Pantanal Paulista" loading="lazy">
+          <div class="experiencia-texto">
+            <h2>Circuito de Pesca Esportiva</h2>
+            <p>Roteiros guiados de pesca nos rios da região, com estrutura para iniciantes e competidores.</p>
+            <a href="pesca.html" class="btn btn-primario">Saiba mais →</a>
+          </div>
+        </div>
+
+        <!-- Bloco com texto à esquerda e imagem à direita: a ordem do HTML é a mesma do bloco
+             anterior (imagem, texto) e a classe bloco-invertido inverte visualmente com row-reverse -->
+        <div class="container-duas-colunas bloco-experiencia bloco-invertido">
+         <img src="img/esportes nauticos.png" alt="Esportes náuticos nas águas do Pantanal Paulista" loading="lazy">
+          <div class="experiencia-texto">
+            <h2>Esportes Náuticos</h2>
+            <p>Stand-up paddle, caiaque e passeios de barco pelas águas calmas do Pantanal Paulista.</p>
+           <a href="esportes-nauticos.html" class="btn btn-primario">Saiba mais →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mais experiências -->
+    <section class="secao-mais-experiencias">
+      <div class="container">
+        <h2 class="titulo-secao">Mais experiências</h2>
+        <div class="cartoes-flex">
+          <div class="cartao">
+        <img src="img/passeios guiados.png" alt="Passeio guiado pela região" loading="lazy">
+            <h3 class="cartao-titulo">Passeios Guiados</h3>
+            <p>Passeios de barco com guias piloteiros pelo Rio Paraná, em Castilho, com paradas para observar a fauna e a flora ribeirinhas.</p>
+          </div>
+          <div class="cartao">
+         <img src="img/trilhas ecologicas.png" alt="Trilha ecológica no Pantanal Paulista" loading="lazy">
+            <h3 class="cartao-titulo">Trilhas Ecológicas</h3>
+            <p>Trilha “Conheça Castilho Pedalando”, para cicloturistas, com mais de 65 km pela zona rural da cidade.</p>
+          </div>
+          <div class="cartao">
+            <img src="img/competiçoes esportivas.png" alt="Competição esportiva na região" loading="lazy">
+            <h3 class="cartao-titulo">Competições Esportivas</h3>
+            <p>Torneios de pesca esportiva, como o Tucuna Free (pesca ao tucunaré), em Itapura.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         EVENTOS (antiga página eventos.html)
+         Âncora #eventos: o menu, o rodapé e a página inicial
+         apontam para cá com experiencias.html#eventos
+    ======================================================= -->
+    <section id="eventos" class="secao-pagina-interna">
+      <div class="container">
+        <h2 class="titulo-pagina">Eventos e Destaques</h2>
+        <p class="subtitulo-pagina">O que está acontecendo na região: feiras, festivais gastronômicos e cursos de ecologia.</p>
+
+        <!-- Filtros de categoria (visual apenas; requer JavaScript para funcionar de fato) -->
+        <div class="eventos-acoes" hidden>
+          <div class="eventos-acoes-texto">
+            <h3>Vai fazer um evento na região?</h3>
+            <p>Divulgue aqui. Depois de aprovado, ele aparece em Eventos e Destaques.</p>
+          </div>
+          <a id="link-form-evento" class="btn btn-primario" href="#" target="_blank" rel="noopener">Divulgar um evento →</a>
+        </div>
+
+        <div class="filtros-eventos">
+          <button type="button" class="btn-filtro btn-filtro-ativo" aria-pressed="true">Todos</button>
+          <button type="button" class="btn-filtro" aria-pressed="false">Feiras</button>
+          <button type="button" class="btn-filtro" aria-pressed="false">Festivais Gastronômicos</button>
+          <button type="button" class="btn-filtro" aria-pressed="false">Cursos</button>
+        </div>
+
+        <!-- Lista de eventos -->
+        <ul class="lista-eventos">
+          <li class="item-evento" data-categoria="Feiras">
+            <span class="data-evento">12-14 SET</span>
+            <div class="info-evento">
+              <h3>Feira Agropecuária Regional</h3>
+              <p>Centro de Eventos Municipal</p>
+            </div>
+          </li>
+          <li class="item-evento" data-categoria="Festivais Gastronômicos">
+            <span class="data-evento">20 SET</span>
+            <div class="info-evento">
+              <h3>Festival Gastronômico do Peixe</h3>
+              <p>Orla do Rio Tietê</p>
+            </div>
+          </li>
+          <li class="item-evento" data-categoria="Cursos">
+            <span class="data-evento">05 OUT</span>
+            <div class="info-evento">
+              <h3>Curso de Ecologia e Sustentabilidade</h3>
+              <p>Centro de Visitantes</p>
+            </div>
+          </li>
+          <li class="item-evento" data-categoria="Feiras">
+            <span class="data-evento">QUARTAS</span>
+            <div class="info-evento">
+              <h3>Feira da Lua</h3>
+              <p>Praça Oscar de Arruda, Valparaíso (todas as quartas-feiras)</p>
+            </div>
+          </li>
+          <li class="item-evento" data-categoria="Festas">
+            <span class="data-evento">A CONFIRMAR</span>
+            <div class="info-evento">
+              <h3>Festa do Peão</h3>
+              <p>Itapura (consulte a prefeitura para a data)</p>
+            </div>
+          </li>
+          <li class="item-evento" data-categoria="Pesca">
+            <span class="data-evento">A CONFIRMAR</span>
+            <div class="info-evento">
+              <h3>Tucuna Free: torneio de pesca ao tucunaré</h3>
+              <p>Itapura (consulte a prefeitura para a data)</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ (igual em todas as páginas) -->
+  <footer class="rodape">
+    <div class="container">
+      <div class="rodape-topo">
+        <p class="rodape-logo">Pantanal Paulista</p>
+      </div>
+      <div class="rodape-colunas">
+        <div class="rodape-coluna">
+          <h4>Institucional</h4>
+          <ul>
+            <li><a href="../index.html#sobre-regiao">Sobre a região</a></li>
+            <li><a href="descubra.html#natureza">Conservação</a></li>
+            <li><a href="pesca.html#pesca-responsavel">Boas práticas</a></li>
+            <li><a href="https://www.turismo.sp.gov.br/sec_turismo" target="_blank" rel="noopener">Notícias</a></li>
+            <li><a href="empresas.html#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="rodape-coluna">
+          <h4>Para o visitante</h4>
+          <ul>
+            <li><a href="descubra.html#mapa">Guias e Mapas</a></li>
+          </ul>
+        </div>
+        <div class="rodape-coluna">
+          <h4>Siga e compartilhe</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/rtpantanal/" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+        <div class="rodape-coluna rodape-aliado">
+          <h4>Seja um aliado</h4>
+          <p>O turismo consciente transforma. Apoie a conservação da natureza.</p>
+          <a href="empresas.html" class="link-saiba-mais">Saiba como ajudar →</a>
+        </div>
+      </div>
+      <div class="rodape-base">
+        <p>© Pantanal Paulista — Turismo Regional</p>
+        <a href="mailto:contato@pantanalpaulista.tur.br">contato@pantanalpaulista.tur.br</a>
+      </div>
+    </div>
+  </footer>
+
+<script src="config.js"></script>
+  <script src="experiencias.js"></script>
+
+</body>
+</html>

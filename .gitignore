@@ -1,0 +1,20 @@
+# Configuração local com a chave da API do Google Maps (NÃO versionar).
+# Copie paginas/config.example.js para paginas/config.js e preencha a chave.
+paginas/config.js
+# Gerado na publicação a partir da planilha (não versionar)
+paginas/eventos.json
+
+# Instruções internas de configuração: ficam só na pasta local
+LEIA-ME-CONFIGURACAO.md
+
+# Variações comuns de arquivos de segredos
+.env
+.env.*
+*.key
+*.pem
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
