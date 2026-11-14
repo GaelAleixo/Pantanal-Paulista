@@ -59,6 +59,12 @@ jobs:
           EVENTOS_CSV_URL: ${{ secrets.EVENTOS_CSV_URL }}
         run: python3 .github/scripts/gerar_eventos.py
 
+      - name: Versionar CSS e JS (evita estilos antigos no cache do navegador)
+        run: |
+          v="${GITHUB_SHA::8}"
+          find . -name '*.html' -not -path './.git/*' -print0 \
+            | xargs -0 sed -i -E "s#(href|src)=\"([^\":]+\.(css|js))\"#\1=\"\2?v=${v}\"#g"
+
       - name: Remover arquivos que não vão ao site
         run: |
           rm -rf .git .github
