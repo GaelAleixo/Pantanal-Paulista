@@ -1,46 +1,36 @@
-  /* ===== Carrossel do banner (imagem + vídeo) ===== */
-  (function(){
-    var box=document.getElementById('descubra-carrossel'); if(!box) return;
-    var slides=box.querySelectorAll('.descubra-slide'), dots=box.querySelectorAll('.descubra-dot');
-    var frame=document.getElementById('descubra-video'), aviso=document.querySelector('.descubra-video-aviso'), atual=0, timer;
-    var reduz=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function ir(n){
-      slides[atual].classList.remove('descubra-slide-ativo'); dots[atual].classList.remove('descubra-dot-ativo');
-      atual=(n+slides.length)%slides.length;
-      slides[atual].classList.add('descubra-slide-ativo'); dots[atual].classList.add('descubra-dot-ativo');
-      /* o vídeo só carrega quando aparece e é interrompido quando sai */
-      frame.src = (slides[atual].contains(frame)) ? frame.getAttribute('data-src') : 'about:blank';
-      aviso.hidden=(atual===0);
-      auto();
-    }
-    function auto(){ clearInterval(timer); if(!reduz && atual===0) timer=setInterval(function(){ir(atual+1);},7000); }
-    box.querySelector('.descubra-carrossel-prev').addEventListener('click',function(){ir(atual-1);});
-    box.querySelector('.descubra-carrossel-next').addEventListener('click',function(){ir(atual+1);});
-    dots.forEach(function(d,i){d.addEventListener('click',function(){ir(i);});});
-    box.addEventListener('mouseenter',function(){clearInterval(timer);}); box.addEventListener('mouseleave',auto);
-    auto();
-  })();
 
   /* ===== Planeje sua visita: abre a busca no Google Maps ===== */
   (function(){
-    /* Links definidos à mão onde a busca padrão por nome não funciona bem (cidades pequenas ou sem hotel). */
+    /* Links de busca no Google Maps definidos à mão para cada cidade (posição e zoom já ajustados). */
+    var G='https://www.google.com/maps/search/';
     var LINKS={
       hospedagem:{
-        'Rubiácea':'https://www.google.com/maps/search/Hot%C3%A9is/@-21.2995589,-50.8117389,12z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D',
-        'Valparaíso':'https://www.google.com/maps/search/Hot%C3%A9is/@-21.228888,-50.8742132,14z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D',
-        'Bento de Abreu':'https://www.google.com/maps/search/Hot%C3%A9is/@-21.2587329,-50.8432597,13z?entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D'
+        'Mirandópolis':G+'hotel+pousada+em+Mirand%C3%B3polis,+SP/@-21.1359246,-51.1084643,14.42z',
+        'Castilho':G+'hotel+pousada+em+Castilho,+SP/@-20.8649582,-51.4911555,13.66z',
+        'Rubiácea':G+'Hot%C3%A9is/@-21.267282,-50.7206798,12.67z',
+        'Andradina':G+'hotel+em+Andradina,+SP/@-20.900147,-51.3887789,13.73z',
+        'Pereira Barreto':G+'Hot%C3%A9is/@-20.6362574,-51.1158905,14z',
+        'Valparaíso':G+'Hot%C3%A9is/@-21.2288855,-50.8742132,14z/data=!3m1!4b1',
+        'Sud Mennucci':G+'hotel+pousada+em+Sud+Mennucci,+SP/@-20.7217519,-50.9223967,16.6z',
+        'Bento de Abreu':G+'Hot%C3%A9is/@-21.2598526,-50.8488817,13z',
+        'Itapura':G+'hotel+pousada+em+Itapura,+SP/@-20.6426019,-51.5144391,15.4z',
+        'Ilha Solteira':G+'hotel+pousada+em+Ilha+Solteira,+SP/@-20.4238445,-51.3425551,14z',
+        'Suzanápolis':G+'pens%C3%A3o+em+suzan%C3%A1polis+sp/@-20.5490219,-51.0999871,12z'
       },
       restaurantes:{
-        'Rubiácea':'https://www.google.com/maps/search/Restaurantes/@-21.299619,-50.7344868,16z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D',
-        'Valparaíso':'https://www.google.com/maps/search/Restaurantes/@-21.2261101,-50.8849485,14z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D',
-        'Bento de Abreu':'https://www.google.com/maps/search/Restaurantes/@-21.2722154,-50.81678,16z?entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D',
-        'Castilho':'https://www.google.com/maps/search/Restaurantes/@-20.8716089,-51.4953572,13z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D',
-        'Sud Mennucci':'https://www.google.com/maps/search/Restaurantes/@-20.6915614,-50.936295,15z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D',
-        'Itapura':'https://www.google.com/maps/search/Restaurantes/@-20.6424881,-51.5217516,15z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D',
-        'Suzanápolis':'https://www.google.com/maps/search/Restaurantes/@-20.5036651,-51.0372979,15z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D'
+        'Mirandópolis':G+'restaurante+em+Mirand%C3%B3polis,+SP/@-21.1359232,-51.1084643,14z/data=!3m1!4b1',
+        'Castilho':G+'restaurante+em+Castilho,+SP/@-20.8659476,-51.4944827,14.31z',
+        'Rubiácea':G+'Restaurantes/@-21.299619,-50.7344868,16z/data=!3m1!4b1',
+        'Andradina':G+'restaurante+em+Andradina,+SP/@-20.8972905,-51.3824719,13.8z',
+        'Pereira Barreto':G+'Restaurantes/@-20.6385065,-51.1261902,14z/data=!3m1!4b1',
+        'Valparaíso':G+'Restaurantes/@-21.2243467,-50.8782553,14z/data=!3m1!4b1',
+        'Sud Mennucci':G+'Restaurantes/@-20.6921576,-50.9273455,14.95z',
+        'Bento de Abreu':G+'Restaurantes+em+bento+de+abreu,+sp/@-21.2718908,-50.8148159,16z/data=!3m1!4b1',
+        'Itapura':G+'restaurante+em+Itapura,+SP/@-20.6476961,-51.5133087,14.87z',
+        'Ilha Solteira':G+'restaurante+em+Ilha+Solteira,+SP/@-20.4238421,-51.3425552,14z/data=!3m1!4b1',
+        'Suzanápolis':G+'restaurante+em+suzan%C3%A1polis+sp/@-20.5158058,-51.0436224,13.62z'
       }
-    };
-    var BASE={hospedagem:'hotel pousada',restaurantes:'restaurante'};
+    };    var BASE={hospedagem:'hotel pousada',restaurantes:'restaurante'};
     document.querySelectorAll('form[data-busca]').forEach(function(f){
       f.addEventListener('submit',function(ev){
         var tipo=f.getAttribute('data-busca'), cid=f.elements['municipio'].value; if(!cid) return;

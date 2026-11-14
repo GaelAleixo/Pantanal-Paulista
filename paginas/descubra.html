@@ -8,6 +8,8 @@
   <script src="seguranca.js"></script>
   <title>Pantanal Paulista - Descubra</title>
   <link rel="stylesheet" href="style_descubra.css">
+  <link rel="stylesheet" href="menu.css">
+  <script src="menu.js" defer></script>
 </head>
 <body>
 
@@ -15,8 +17,9 @@
   <header class="header">
     <div class="header-container">
       <a href="../index.html" class="logo">Pantanal Paulista</a>
+      <button type="button" class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal"><span class="menu-toggle-barras" aria-hidden="true"></span></button>
 
-      <nav class="nav-principal">
+      <nav class="nav-principal" id="menu-principal" aria-label="Menu principal">
         <ul class="nav-lista">
           <li><a href="../index.html">Início</a></li>
           <li><a href="descubra.html" class="ativo">Descubra</a></li>
@@ -31,37 +34,26 @@
 
   <main>
 
-    <section class="descubra-topo">
+    <section class="descubra-topo descubra-banner">
+      <!-- Imagem de fundo (mesma do banner da página inicial) -->
+      <img class="descubra-banner-fundo" src="img/img 1.png" alt="" aria-hidden="true" decoding="async">
       <div class="container">
         <div class="descubra-topo-texto">
-        <p class="rotulo rotulo-claro">GUIA DO VISITANTE</p>
-        <h1 class="titulo-secao-grande">Descubra o<br>PANTANAL PAULISTA</h1>
-        <p class="subtitulo-secao-grande">
-          Rios, biodiversidade, municípios e experiências inesquecíveis
-          em uma das regiões mais ricas do país.
-        </p>
+          <p class="rotulo rotulo-claro">GUIA DO VISITANTE</p>
+          <h1 class="titulo-secao-grande">Descubra o<br>PANTANAL PAULISTA</h1>
+          <p class="subtitulo-secao-grande">
+            Rios, biodiversidade, municípios e experiências inesquecíveis
+            em uma das regiões mais ricas do país.
+          </p>
         </div>
         <div class="descubra-topo-midia">
-        <!-- Carrossel do banner: 1) imagem, 2) vídeo do YouTube -->
-        <div class="descubra-carrossel" id="descubra-carrossel" role="region" aria-roledescription="carrossel" aria-label="Destaques do Pantanal Paulista">
-          <div class="descubra-slide descubra-slide-ativo" aria-label="Slide 1 de 2: imagem">
-            <div class="placeholder-img placeholder-descubra-hero"><img src="img/img 1.png" alt="Paisagem do Pantanal Paulista"></div>
+          <div class="descubra-video">
+            <iframe id="descubra-video" title="Vídeo sobre o Pantanal Paulista" src="https://www.youtube-nocookie.com/embed/bDJVuci46OU?rel=0&amp;playsinline=1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-scripts allow-same-origin allow-presentation allow-popups allow-popups-to-escape-sandbox" allowfullscreen></iframe>
           </div>
-          <div class="descubra-slide" aria-label="Slide 2 de 2: vídeo">
-            <iframe id="descubra-video" title="Vídeo sobre o Pantanal Paulista" data-src="https://www.youtube-nocookie.com/embed/bDJVuci46OU?rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-scripts allow-same-origin allow-presentation allow-popups allow-popups-to-escape-sandbox" allowfullscreen></iframe>
-          </div>
-          <button type="button" class="descubra-carrossel-btn descubra-carrossel-prev" aria-label="Slide anterior">&#8592;</button>
-          <button type="button" class="descubra-carrossel-btn descubra-carrossel-next" aria-label="Próximo slide">&#8594;</button>
-          <div class="descubra-carrossel-dots">
-            <button type="button" class="descubra-dot descubra-dot-ativo" aria-label="Slide 1: imagem"></button>
-            <button type="button" class="descubra-dot" aria-label="Slide 2: vídeo"></button>
-          </div>
-        </div>
-        <p class="descubra-video-aviso" hidden>Se o vídeo não carregar, <a href="https://youtu.be/bDJVuci46OU" target="_blank" rel="noopener">assista no YouTube</a>.</p>
+          <p class="descubra-video-aviso">Se o vídeo não carregar, <a href="https://youtu.be/bDJVuci46OU" target="_blank" rel="noopener">assista no YouTube</a>.</p>
         </div>
       </div>
     </section>
-
     <nav class="subnav-descubra">
       <div class="container subnav-lista">
         <a href="#mapa"><span class="subnav-titulo">MAPA</span><span class="subnav-desc">Explore a região</span></a>
@@ -345,29 +337,74 @@
         <h2 class="titulo-secao">Espécies que você pode encontrar</h2>
         <div class="cartoes-flex cartoes-5">
           <article class="cartao-especie">
-            <div><img loading="lazy" src="img/tuiuiu.png" alt="Tuiuiú, ave símbolo do Pantanal"></div>
-            <h3>TUIUIÚ</h3>
-            <p>A ave símbolo do Pantanal também marca presença nas áreas alagadas paulistas.</p>
+            <div class="especie-foto"><img loading="lazy" src="img/tuiuiu.png" alt="Tuiuiú, ave símbolo do Pantanal"></div>
+            <div class="especie-texto">
+              <h3>TUIUIÚ</h3>
+              <p class="especie-cientifico">Jabiru mycteria</p>
+              <p>A ave símbolo do Pantanal também marca presença nas áreas alagadas paulistas. É uma das maiores aves voadoras da América do Sul.</p>
+              <ul class="especie-dados">
+                <li><strong>Porte:</strong> cerca de 1,4 m de altura e mais de 2 m de envergadura.</li>
+                <li><strong>Reconhecimento:</strong> plumagem branca, cabeça e pescoço pretos e uma faixa vermelha na base do pescoço.</li>
+                <li><strong>Alimentação:</strong> peixes, anfíbios e répteis, capturados em águas rasas.</li>
+                <li><strong>Curiosidade:</strong> constrói grandes ninhos de galhos no alto das árvores.</li>
+              </ul>
+            </div>
           </article>
           <article class="cartao-especie">
-            <div><img loading="lazy" src="img/capivara.png" alt="Capivara à beira d’água"></div>
-            <h3>CAPIVARA</h3>
-            <p>O maior roedor do mundo, abundante à beira d'água.</p>
+            <div class="especie-foto"><img loading="lazy" src="img/capivara.png" alt="Capivara à beira d’água"></div>
+            <div class="especie-texto">
+              <h3>CAPIVARA</h3>
+              <p class="especie-cientifico">Hydrochoerus hydrochaeris</p>
+              <p>O maior roedor do mundo, abundante à beira d'água, onde passa boa parte do dia.</p>
+              <ul class="especie-dados">
+                <li><strong>Porte:</strong> adultos chegam a cerca de 1,3 m de comprimento e dezenas de quilos.</li>
+                <li><strong>Hábitos:</strong> semiaquática e boa nadadora, vive em grupos e é mais ativa ao amanhecer e ao entardecer.</li>
+                <li><strong>Alimentação:</strong> herbívora, come capim e plantas aquáticas.</li>
+                <li><strong>Onde ver:</strong> margens de rios, lagoas e represas.</li>
+              </ul>
+            </div>
           </article>
           <article class="cartao-especie">
-            <div><img loading="lazy" src="img/colhereiro.png" alt="Colhereiro, ave de bico em formato de colher"></div>
-            <h3>COLHEREIRO</h3>
-            <p>Ave de grande porte, facilmente reconhecida pelo seu bico em formato de colher.</p>
+            <div class="especie-foto"><img loading="lazy" src="img/colhereiro.png" alt="Colhereiro, ave de bico em formato de colher"></div>
+            <div class="especie-texto">
+              <h3>COLHEREIRO</h3>
+              <p class="especie-cientifico">Platalea ajaja</p>
+              <p>Ave de grande porte, facilmente reconhecida pelo seu bico em formato de colher.</p>
+              <ul class="especie-dados">
+                <li><strong>Reconhecimento:</strong> plumagem rosada e bico achatado, largo na ponta.</li>
+                <li><strong>Alimentação:</strong> move o bico de um lado para o outro na água rasa e filtra peixes pequenos, crustáceos e insetos aquáticos.</li>
+                <li><strong>Curiosidade:</strong> o tom rosado vem de pigmentos presentes no alimento.</li>
+                <li><strong>Onde ver:</strong> lagoas rasas e áreas alagadas, geralmente em bandos.</li>
+              </ul>
+            </div>
           </article>
           <article class="cartao-especie">
-            <div><img loading="lazy" src="img/jacare.png" alt="Jacaré-de-papo-amarelo"></div>
-            <h3>JACARÉ-DE-PAPO-AMARELO</h3>
-            <p>O crocodiliano típico dos alagados paulistas.</p>
+            <div class="especie-foto"><img loading="lazy" src="img/jacare.png" alt="Jacaré-de-papo-amarelo"></div>
+            <div class="especie-texto">
+              <h3>JACARÉ-DE-PAPO-AMARELO</h3>
+              <p class="especie-cientifico">Caiman latirostris</p>
+              <p>O crocodiliano típico dos alagados paulistas, de focinho largo e garganta amarelada.</p>
+              <ul class="especie-dados">
+                <li><strong>Porte:</strong> costuma medir entre 2 e 3 m quando adulto.</li>
+                <li><strong>Alimentação:</strong> peixes, moluscos, crustáceos e pequenos animais que chegam à água.</li>
+                <li><strong>Curiosidade:</strong> a fêmea monta o ninho com vegetação e protege os filhotes.</li>
+                <li><strong>Onde ver:</strong> rios, lagoas e áreas alagadas. Observe de longe e nunca alimente.</li>
+              </ul>
+            </div>
           </article>
           <article class="cartao-especie">
-            <div><img loading="lazy" src="img/bingua.png" alt="Binguá, ave aquática preta"></div>
-            <h3>BINGUÁ</h3>
-            <p>Ave aquática preta muito comum nos trechos de lagos e rios.</p>
+            <div class="especie-foto"><img loading="lazy" src="img/bingua.png" alt="Binguá, ave aquática preta"></div>
+            <div class="especie-texto">
+              <h3>BINGUÁ</h3>
+              <p class="especie-cientifico">Nannopterum brasilianus</p>
+              <p>Ave aquática preta muito comum nos trechos de lagos e rios.</p>
+              <ul class="especie-dados">
+                <li><strong>Reconhecimento:</strong> plumagem escura e bico fino com a ponta em gancho.</li>
+                <li><strong>Alimentação:</strong> mergulha para perseguir peixes debaixo d'água.</li>
+                <li><strong>Curiosidade:</strong> depois da pesca, pousa de asas abertas para secá-las ao sol.</li>
+                <li><strong>Onde ver:</strong> lagos, rios e represas, em galhos e pedras à beira d'água.</li>
+              </ul>
+            </div>
           </article>
         </div>
       </div>

@@ -1,0 +1,96 @@
+/* ========================================================
+   MENU SANDUÍCHE (celular e tablet pequeno)
+   Compartilhado por todas as páginas; carregado depois do CSS de cada página.
+======================================================== */
+
+/* Desktop: o botão sanduíche não aparece */
+.menu-toggle { display: none; }
+
+@media (max-width: 768px) {
+
+  /* Cabeçalho enxuto e fixo no topo também no celular */
+  .header { position: sticky; top: 0; }
+  html { scroll-padding-top: 72px; }
+
+  .header .header-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+    padding: 10px 16px;
+  }
+
+  /* "Planeje sua visita" não aparece no menu do celular */
+  .header .btn-header { display: none; }
+
+  /* Botão sanduíche (área de toque de 44 px) */
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid #E5E1D8;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    color: #1B4332;
+    cursor: pointer;
+  }
+  .menu-toggle:hover { background-color: #F5F1E8; }
+
+  .menu-toggle-barras,
+  .menu-toggle-barras::before,
+  .menu-toggle-barras::after {
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: currentColor;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  .menu-toggle-barras { position: relative; }
+  .menu-toggle-barras::before,
+  .menu-toggle-barras::after { content: ""; position: absolute; left: 0; }
+  .menu-toggle-barras::before { top: -6px; }
+  .menu-toggle-barras::after { top: 6px; }
+
+  /* Aberto: vira um "X" */
+  .menu-toggle[aria-expanded="true"] .menu-toggle-barras { background-color: transparent; }
+  .menu-toggle[aria-expanded="true"] .menu-toggle-barras::before { transform: translateY(6px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] .menu-toggle-barras::after { transform: translateY(-6px) rotate(-45deg); }
+
+  /* Menu: fechado por padrão; ao abrir, lista vertical em largura total */
+  .header .nav-principal {
+    display: none;
+    width: 100%;
+    order: 3;
+    margin-top: 10px;
+    border-top: 1px solid #E5E1D8;
+  }
+  .header .nav-principal.aberto { display: block; }
+
+  .header .nav-lista {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .header .nav-lista li { border-bottom: 1px solid #F0ECE2; }
+  .header .nav-lista li:last-child { border-bottom: 0; }
+  .header .nav-lista a {
+    display: block;
+    padding: 14px 4px;
+    font-size: 16px;
+  }
+  .header .nav-lista a.ativo { padding-bottom: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-toggle-barras,
+  .menu-toggle-barras::before,
+  .menu-toggle-barras::after { transition: none; }
+}

@@ -9,6 +9,8 @@
   <title>Pantanal Paulista - Para Empresas e Investidores</title>
 
 <link rel="stylesheet" href="style_empresas.css">
+  <link rel="stylesheet" href="menu.css">
+  <script src="menu.js" defer></script>
 </head>
 <body>
 
@@ -16,8 +18,9 @@
   <header class="header">
     <div class="header-container">
       <a href="../index.html" class="logo">Pantanal Paulista</a>
+      <button type="button" class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal"><span class="menu-toggle-barras" aria-hidden="true"></span></button>
 
-      <nav class="nav-principal">
+      <nav class="nav-principal" id="menu-principal" aria-label="Menu principal">
         <ul class="nav-lista">
           <li><a href="../index.html">Início</a></li>
           <li><a href="descubra.html">Descubra</a></li>

@@ -930,16 +930,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     text-align: center;
   }
 
-  .secao-municipios .cartoes-3 > * { flex: 1 1 100%; }
+  .secao-municipios .cartoes-3 > * { flex: 0 1 calc(50% - 12px); }
   .descubra-carrossel-btn { display: none; }
   .placeholder-mapa { height: 380px; min-height: 380px; }
 
-  /* Todos os cartões passam a ocupar 100% da largura (1 coluna) */
+  /* Cartões de 3 colunas passam a 2; os de 4 e 5 ocupam a largura toda (1 coluna) */
   .cartoes-flex .cartao,
   .cartoes-4 > *,
-  .cartoes-5 > *,
-  .cartoes-3 > * {
+  .cartoes-5 > * {
     flex: 1 1 100%;
+  }
+  .cartoes-3 > * {
+    flex: 0 1 calc(50% - 12px);
   }
 
   /* Blocos de duas colunas (mapa, experiências, busca) empilham */
@@ -1019,4 +1021,99 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .secao-municipios,
 .secao-natureza,
 .secao-especies { padding-top: 48px; padding-bottom: 48px; }
+}
+
+/* ========================================================
+   BANNER DA PÁGINA DESCUBRA
+   Mesmo visual do banner inicial (imagem de fundo + degradê escuro),
+   com duas colunas: texto à esquerda e vídeo à direita.
+======================================================== */
+.descubra-topo.descubra-banner {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: clamp(420px, 46vw, 640px);
+  padding: 64px 0;
+  background-color: #1B4332; /* cor enquanto a imagem não carrega */
+}
+.descubra-banner-fundo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.descubra-topo.descubra-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.50) 45%, rgba(0, 0, 0, 0.25) 100%);
+  pointer-events: none;
+}
+.descubra-banner .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+.descubra-banner .titulo-secao-grande {
+  font-size: clamp(30px, 4.2vw, 52px);
+  line-height: 1.15;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+.descubra-banner .subtitulo-secao-grande {
+  font-size: clamp(16px, 1.6vw, 20px);
+  line-height: 1.6;
+  opacity: 0.92;
+}
+.descubra-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #143024;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+.descubra-video iframe { position: absolute; inset: 0; display: block; width: 100%; height: 100%; border: 0; }
+.descubra-banner .descubra-video-aviso { text-align: right; color: rgba(255, 255, 255, 0.9); }
+
+@media (max-width: 992px) {
+  .descubra-topo.descubra-banner { min-height: 0; padding: 48px 0; }
+  .descubra-banner .descubra-video-aviso { text-align: left; }
+}
+/* ========================================================
+   ESPÉCIES: ficha com mais detalhes
+   Desktop: 3 por linha, foto no topo · Tablet: 2 por linha ·
+   Celular: legenda ao lado da foto
+======================================================== */
+.secao-especies .cartoes-5 { justify-content: center; }
+.secao-especies .cartoes-5 > * { flex: 0 1 calc(33.333% - 16px); }
+.cartao-especie { text-align: left; }
+.cartao-especie .especie-foto img { margin: 0 auto 14px auto; }
+.cartao-especie h3 { font-size: 14px; text-align: center; margin-bottom: 2px; }
+.cartao-especie .especie-cientifico { font-style: italic; font-size: 12px; color: #6B7280; text-align: center; margin-bottom: 10px; }
+.cartao-especie .especie-texto > p:not(.especie-cientifico) { font-size: 14px; line-height: 1.55; }
+.cartao-especie .especie-dados { list-style: none; margin: 10px 0 0; padding: 0; font-size: 13px; color: #4B5563; line-height: 1.5; }
+.cartao-especie .especie-dados li { margin-bottom: 6px; }
+.cartao-especie .especie-dados strong { color: #1B4332; }
+
+@media (max-width: 992px) {
+  .secao-especies .cartoes-5 > * { flex: 0 1 calc(50% - 12px); }
+}
+
+@media (max-width: 600px) {
+  .secao-especies .cartoes-5 > * { flex: 1 1 100%; }
+  .cartao-especie { display: flex; flex-direction: row; align-items: flex-start; gap: 14px; }
+  .cartao-especie .especie-foto { flex: 0 0 92px; }
+  .cartao-especie .especie-foto img { width: 92px; height: 92px; margin: 0; }
+  .cartao-especie .especie-texto { flex: 1 1 auto; min-width: 0; }
+  .cartao-especie h3,
+  .cartao-especie .especie-cientifico { text-align: left; }
+  .cartao-especie .especie-texto > p:not(.especie-cientifico) { font-size: 13px; }
+  .cartao-especie .especie-dados { font-size: 12.5px; }
+
+  /* Municípios em 2 colunas: foto menor para caber */
+  .cartao-municipio .municipio-foto { height: 120px; }
 }

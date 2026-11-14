@@ -363,9 +363,15 @@
       text-align: center;
     }
   
-    /* Cartões passam a ocupar 100% da largura (1 coluna) */
+    /* Cartões de 3 colunas passam a 2 colunas */
+    .cartoes-flex {
+      gap: 16px;
+    }
     .cartoes-flex .cartao {
-      flex: 1 1 100%;
+      flex: 1 1 calc(50% - 8px);
+      box-sizing: border-box;
+      min-width: 0;
+      padding: 12px;
     }
   
     /* Blocos de duas colunas (experiências) empilham */
@@ -523,3 +529,10 @@
 .secao-sem-respiro-inferior { padding-bottom: 0; }
 @media (max-width: 992px) { .pagina-topo .titulo-pagina { font-size: 28px; } }
 @media (max-width: 600px) { .pagina-topo .titulo-pagina { font-size: 24px; } .eventos-acoes { padding: 20px; } }
+
+/* Celular: cartões em 2 colunas, imagens menores para caber */
+@media (max-width: 600px) {
+  .cartoes-flex .cartao img { height: 150px; }
+  .cartoes-flex .cartao .cartao-titulo { font-size: 15px; }
+  .cartoes-flex .cartao p { font-size: 13px; }
+}
