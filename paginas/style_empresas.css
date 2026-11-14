@@ -507,3 +507,18 @@ img {
 .secao-formulario-contato { padding-top: 48px; padding-bottom: 48px; }
 }
 .titulo-form { color: #1B4332; }
+
+/* Formulário de contato (Google Forms embutido) */
+.form-google {
+  display: block;
+  width: 100%;
+  height: 1000px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+}
+.form-google-aviso { margin-top: 12px; font-size: 14px; color: #4B5563; }
+.form-google-aviso a { color: #1B4332; text-decoration: underline; }
+@media (max-width: 600px) {
+  .form-google { height: 1150px; }
+}

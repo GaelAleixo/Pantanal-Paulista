@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action https://formspree.io; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'none'; frame-src https://docs.google.com; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <script src="seguranca.js"></script>
   <title>Pantanal Paulista - Para Empresas e Investidores</title>
@@ -120,47 +120,8 @@
           <div class="form-contato">
             <h2 class="titulo-form">Fale com o nosso time institucional</h2>
 
-            <form action="https://formspree.io/f/xbggezay" method="POST">
-              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
-              <div class="linha-form">
-                <div class="campo-form">
-                  <label for="nome">Nome Completo</label>
-                  <input type="text" id="nome" name="nome" maxlength="100" autocomplete="name" placeholder="Ex: João da Silva" required>
-                </div>
-                <div class="campo-form">
-                  <label for="empresa">Empresa</label>
-                  <input type="text" id="empresa" name="empresa" maxlength="100" autocomplete="organization" placeholder="Ex: Turismo e Cia">
-                </div>
-              </div>
-
-              <div class="linha-form">
-                <div class="campo-form">
-                  <label for="email">Email Corporativo</label>
-                  <input type="email" id="email" name="email" maxlength="120" autocomplete="email" placeholder="contato@suaempresa.com.br" required>
-                </div>
-                <div class="campo-form">
-                  <label for="telefone">Telefone / WhatsApp</label>
-                  <input type="tel" id="telefone" name="telefone" maxlength="30" autocomplete="tel" placeholder="(11) 99999-9999">
-                </div>
-              </div>
-
-              <div class="campo-form campo-full">
-                <label for="assunto">Interesse Principal</label>
-                <select id="assunto" name="assunto">
-                  <option value="agencia">Sou Agência</option>
-                  <option value="investimento">Quero investir</option>
-                  <option value="parceria">Parceria</option>
-                  <option value="outro">Outro assunto</option>
-                </select>
-              </div>
-
-              <div class="campo-form campo-full">
-                <label for="mensagem">Como podemos gerar valor juntos?</label>
-                <textarea id="mensagem" name="mensagem" rows="5" maxlength="2000" placeholder="Conte-nos um pouco sobre seu objetivo..."></textarea>
-              </div>
-
-              <button type="submit" class="button btn-primario">Enviar →</button>
-            </form>
+            <iframe class="form-google" title="Formulário de contato institucional" src="https://docs.google.com/forms/d/e/1FAIpQLSeBfKj_dIImrkbYkT1VAI27xixfASYKrNmSkRO6NbNveAYhqw/viewform?embedded=true" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox">Carregando formulário…</iframe>
+            <p class="form-google-aviso">Se o formulário não carregar, <a href="https://forms.gle/eaQogQWuXv2zVe348" target="_blank" rel="noopener">abra em outra aba</a>.</p>
           </div>
         </div>
       </section>
@@ -210,7 +171,5 @@
       </div>
     </div>
   </footer>
-
-  <script src="empresas.js"></script>
 </body>
 </html>
