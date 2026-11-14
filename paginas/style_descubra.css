@@ -1123,3 +1123,74 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .secao-municipios .cartoes-3 > * { flex: 1 1 100%; }
   .cartao-municipio .municipio-foto { height: 200px; }
 }
+
+/* ========================================================
+   CARROSSEL DE ESPÉCIES
+   Trilho rolável com encaixe (scroll-snap): funciona por deslize no
+   celular, setas e indicadores. 3 fichas no desktop, 2 no tablet, 1 no celular.
+======================================================== */
+.especies-carrossel { position: relative; }
+.secao-especies .especies-trilho {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 4px 2px 8px;
+}
+.secao-especies .especies-trilho::-webkit-scrollbar { display: none; }
+.secao-especies .especies-trilho:focus-visible { outline: 2px solid #1B4332; outline-offset: 4px; }
+.secao-especies .especies-trilho > .cartao-especie {
+  flex: 0 0 calc((100% - 48px) / 3);
+  box-sizing: border-box;
+  scroll-snap-align: start;
+}
+
+.especies-controles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 24px;
+}
+.especies-controles[hidden] { display: none; }
+.especies-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #1B4332;
+  background-color: #FFFFFF;
+  color: #1B4332;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+.especies-btn:hover:not(:disabled) { background-color: #1B4332; color: #FFFFFF; }
+.especies-btn:disabled { opacity: 0.35; cursor: default; }
+.especies-dots { display: flex; gap: 10px; }
+.especies-dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid #1B4332;
+  background-color: transparent;
+  cursor: pointer;
+}
+.especies-dot[aria-current="true"] { background-color: #1B4332; }
+
+@media (max-width: 992px) {
+  .secao-especies .especies-trilho > .cartao-especie { flex: 0 0 calc((100% - 24px) / 2); }
+}
+@media (max-width: 600px) {
+  .secao-especies .especies-trilho { gap: 16px; }
+  .secao-especies .especies-trilho > .cartao-especie { flex: 0 0 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .secao-especies .especies-trilho { scroll-behavior: auto; }
+}

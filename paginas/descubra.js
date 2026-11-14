@@ -131,4 +131,53 @@
     s.src='https://maps.googleapis.com/maps/api/js?key='+encodeURIComponent(cfg.GOOGLE_MAPS_API_KEY)+'&v=weekly&language=pt-BR&region=BR&loading=async&callback=initMapaPantanal';
     s.async=true; s.onerror=fallback; document.head.appendChild(s);
   })();
-  
+
+  /* ===== Carrossel de espécies: setas, indicadores e deslize ===== */
+  (function(){
+    var box=document.getElementById('especies-carrossel'); if(!box) return;
+    var trilho=box.querySelector('.especies-trilho'), ctrl=box.querySelector('.especies-controles');
+    var prev=box.querySelector('.especies-prev'), next=box.querySelector('.especies-next'), dotsBox=box.querySelector('.especies-dots');
+    var cards=trilho.children, dots=[];
+    var reduz=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function passo(){
+      var gap=parseFloat(getComputedStyle(trilho).columnGap)||0;
+      return cards[0].getBoundingClientRect().width+gap;
+    }
+    function visiveis(){ return Math.max(1,Math.round((trilho.clientWidth+((parseFloat(getComputedStyle(trilho).columnGap))||0))/passo())); }
+    function destinos(){ return Math.max(1,cards.length-visiveis()+1); }
+    function indice(){ return Math.min(destinos()-1,Math.max(0,Math.round(trilho.scrollLeft/passo()))); }
+    function ir(i){
+      i=Math.min(destinos()-1,Math.max(0,i));
+      trilho.scrollTo({left:i*passo(),behavior:reduz?'auto':'smooth'});
+      setTimeout(atualizar,500);  /* garante setas/indicadores corretos ao fim do movimento */
+    }
+    function montar(){
+      var n=destinos();
+      if(dots.length===n) return;
+      dotsBox.textContent=''; dots=[];
+      for(var i=0;i<n;i++){
+        (function(k){
+          var b=document.createElement('button'); b.type='button'; b.className='especies-dot';
+          b.setAttribute('aria-label','Ir para a posição '+(k+1)+' de '+n);
+          b.addEventListener('click',function(){ ir(k); });
+          dotsBox.appendChild(b); dots.push(b);
+        })(i);
+      }
+    }
+    function atualizar(){
+      montar();
+      var i=indice(), fim=trilho.scrollLeft+trilho.clientWidth>=trilho.scrollWidth-2;
+      if(fim) i=dots.length-1;
+      dots.forEach(function(d,k){ if(k===i) d.setAttribute('aria-current','true'); else d.removeAttribute('aria-current'); });
+      prev.disabled=(trilho.scrollLeft<=2); next.disabled=fim;
+    }
+    prev.addEventListener('click',function(){ ir(indice()-1); });
+    next.addEventListener('click',function(){ ir(indice()+1); });
+    trilho.addEventListener('keydown',function(ev){
+      if(ev.key==='ArrowRight'){ ev.preventDefault(); ir(indice()+1); }
+      else if(ev.key==='ArrowLeft'){ ev.preventDefault(); ir(indice()-1); }
+    });
+    var espera; trilho.addEventListener('scroll',function(){ clearTimeout(espera); espera=setTimeout(atualizar,60); },{passive:true});
+    window.addEventListener('resize',function(){ dots=[]; atualizar(); });
+    ctrl.hidden=false; atualizar();
+  })();

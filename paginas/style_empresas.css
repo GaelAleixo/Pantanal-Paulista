@@ -427,12 +427,9 @@ img {
 /* ---- Tablets (telas até 768px) ---- */
 @media (max-width: 768px) {
 
-  /* Cartões B2B: 3 colunas viram 2 */
+  /* Cartões B2B em coluna única */
   .cartao-empresa-moderno {
-    flex: 1 1 calc(50% - 15px);
-    box-sizing: border-box;
-    min-width: 0;
-    padding: 24px 16px;
+    flex: 1 1 100%;
   }
 
   /* Argumentos e campos do formulário em coluna única */

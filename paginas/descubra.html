@@ -335,7 +335,8 @@
     <section class="secao-especies">
       <div class="container">
         <h2 class="titulo-secao">Espécies que você pode encontrar</h2>
-        <div class="cartoes-flex cartoes-5">
+        <div class="especies-carrossel" id="especies-carrossel" role="region" aria-roledescription="carrossel" aria-label="Espécies que você pode encontrar">
+          <div class="cartoes-flex cartoes-5 especies-trilho" tabindex="0">
           <article class="cartao-especie">
             <div class="especie-foto"><img loading="lazy" src="img/tuiuiu.png" alt="Tuiuiú, ave símbolo do Pantanal"></div>
             <div class="especie-texto">
@@ -406,6 +407,12 @@
               </ul>
             </div>
           </article>
+          </div>
+          <div class="especies-controles" hidden>
+            <button type="button" class="especies-btn especies-prev" aria-label="Espécie anterior">&#8592;</button>
+            <div class="especies-dots" role="group" aria-label="Escolher espécie"></div>
+            <button type="button" class="especies-btn especies-next" aria-label="Próxima espécie">&#8594;</button>
+          </div>
         </div>
       </div>
     </section>
