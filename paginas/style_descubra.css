@@ -1117,3 +1117,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   /* Municípios em 2 colunas: foto menor para caber */
   .cartao-municipio .municipio-foto { height: 120px; }
 }
+/* Celular: blocos "Experiências" e "Municípios" em 1 coluna */
+@media (max-width: 600px) {
+  .secao-experiencias-preview .cartoes-3 > *,
+  .secao-municipios .cartoes-3 > * { flex: 1 1 100%; }
+  .cartao-municipio .municipio-foto { height: 200px; }
+}
