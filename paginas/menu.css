@@ -18,7 +18,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 0;
-    padding: 10px 16px;
+    padding: 8px 16px;
   }
 
   /* "Planeje sua visita" não aparece no menu do celular */
@@ -93,4 +93,18 @@
   .menu-toggle-barras,
   .menu-toggle-barras::before,
   .menu-toggle-barras::after { transition: none; }
+}
+
+/* ========================================================
+   LOGO (cabeçalho e rodapé)
+======================================================== */
+.header .logo { display: inline-flex; align-items: center; line-height: 0; }
+.header .header-container { padding-top: 8px; padding-bottom: 8px; }
+.logo-img { display: block; height: 64px; width: auto; }
+.rodape-logo { line-height: 0; margin-bottom: 32px; }
+.logo-rodape { display: block; height: 96px; width: auto; }
+
+@media (max-width: 768px) {
+  .logo-img { height: 52px; }
+  .logo-rodape { height: 80px; }
 }
