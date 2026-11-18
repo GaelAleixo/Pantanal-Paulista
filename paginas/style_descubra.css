@@ -1234,3 +1234,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media (prefers-reduced-motion: reduce) {
   .subnav-icone { transition: none; }
 }
+/* Município sem foto ainda: caixa neutra com aviso (troque pelo <img> quando a foto chegar) */
+.municipio-foto-vazia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1B4332;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}

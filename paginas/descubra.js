@@ -15,7 +15,10 @@
         'Bento de Abreu':G+'Hot%C3%A9is/@-21.2598526,-50.8488817,13z',
         'Itapura':G+'hotel+pousada+em+Itapura,+SP/@-20.6426019,-51.5144391,15.4z',
         'Ilha Solteira':G+'hotel+pousada+em+Ilha+Solteira,+SP/@-20.4238445,-51.3425551,14z',
-        'Suzanápolis':G+'pens%C3%A3o+em+suzan%C3%A1polis+sp/@-20.5490219,-51.0999871,12z'
+        'Suzanápolis':G+'pens%C3%A3o+em+suzan%C3%A1polis+sp/@-20.5490219,-51.0999871,12z',
+        'Guaraçaí':G+'hotel+pousada+em+Guara%C3%A7a%C3%AD,+SP/@-21.0322387,-51.2100464,14z',
+        'Lavínia':G+'hotel+pousada+em+Lav%C3%ADnia,+SP/@-21.1665477,-51.0410539,14z',
+        'Murutinga do Sul':G+'hotel+pousada+em+Murutinga+do+Sul,+SP/@-20.9913722,-51.2782237,14z'
       },
       restaurantes:{
         'Mirandópolis':G+'restaurante+em+Mirand%C3%B3polis,+SP/@-21.1359232,-51.1084643,14z/data=!3m1!4b1',
@@ -28,7 +31,10 @@
         'Bento de Abreu':G+'Restaurantes+em+bento+de+abreu,+sp/@-21.2718908,-50.8148159,16z/data=!3m1!4b1',
         'Itapura':G+'restaurante+em+Itapura,+SP/@-20.6476961,-51.5133087,14.87z',
         'Ilha Solteira':G+'restaurante+em+Ilha+Solteira,+SP/@-20.4238421,-51.3425552,14z/data=!3m1!4b1',
-        'Suzanápolis':G+'restaurante+em+suzan%C3%A1polis+sp/@-20.5158058,-51.0436224,13.62z'
+        'Suzanápolis':G+'restaurante+em+suzan%C3%A1polis+sp/@-20.5158058,-51.0436224,13.62z',
+        'Guaraçaí':G+'restaurante+em+Guara%C3%A7a%C3%AD,+SP/@-21.0322387,-51.2100464,14z',
+        'Lavínia':G+'restaurante+em+Lav%C3%ADnia,+SP/@-21.1665477,-51.0410539,14z',
+        'Murutinga do Sul':G+'restaurante+em+Murutinga+do+Sul,+SP/@-20.9913722,-51.2782237,14z'
       }
     };    var BASE={hospedagem:'hotel pousada',restaurantes:'restaurante'};
     document.querySelectorAll('form[data-busca]').forEach(function(f){
@@ -76,7 +82,7 @@
   /* ===== Mapa real do Google Maps com as 9 cidades ===== */
   (function(){
     var cfg=window.PANTANAL_CONFIG||{}, el=document.getElementById('mapa-google'); if(!el) return;
-    var CID=window.PANTANAL_CIDADES=[["Mirandópolis",-21.13361,-51.10167,"mirandopolis"],["Castilho",-20.8722,-51.4875,"castilho"],["Rubiácea",-21.30056,-50.72667,"rubiacea"],["Andradina",-20.8956,-51.3797,"andradina"],["Pereira Barreto",-20.6358,-51.1114,"pereira-barreto"],["Valparaíso",-21.22778,-50.86833,"valparaiso"],["Sud Mennucci",-20.69083,-50.92389,"sud-mennucci"],["Bento de Abreu",-21.27056,-50.81194,"bento-de-abreu"],["Itapura",-20.6417,-51.505,"itapura"],["Ilha Solteira",-20.42722,-51.34361,"ilha-solteira"],["Suzanápolis",-20.50139,-51.02472,"suzanapolis"]];
+    var CID=window.PANTANAL_CIDADES=[["Mirandópolis",-21.13361,-51.10167,"mirandopolis"],["Castilho",-20.8722,-51.4875,"castilho"],["Rubiácea",-21.30056,-50.72667,"rubiacea"],["Andradina",-20.8956,-51.3797,"andradina"],["Pereira Barreto",-20.6358,-51.1114,"pereira-barreto"],["Valparaíso",-21.22778,-50.86833,"valparaiso"],["Sud Mennucci",-20.69083,-50.92389,"sud-mennucci"],["Bento de Abreu",-21.27056,-50.81194,"bento-de-abreu"],["Itapura",-20.6417,-51.505,"itapura"],["Ilha Solteira",-20.42722,-51.34361,"ilha-solteira"],["Suzanápolis",-20.50139,-51.02472,"suzanapolis"],["Guaraçaí",-21.03224,-51.21005,"guaracai"],["Lavínia",-21.16655,-51.04105,"lavinia"],["Murutinga do Sul",-20.99137,-51.27822,"murutinga-do-sul"]];
     var falhou=false;
     function fallback(){
       falhou=true;
