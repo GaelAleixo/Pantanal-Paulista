@@ -1195,3 +1195,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media (prefers-reduced-motion: reduce) {
   .secao-especies .especies-trilho { scroll-behavior: auto; }
 }
+/* Link de apoio ao vídeo: mais visível, caso o YouTube peça verificação */
+.descubra-banner .descubra-video-aviso { font-size: 14px; }
+.descubra-banner .descubra-video-aviso a { font-weight: bold; }
