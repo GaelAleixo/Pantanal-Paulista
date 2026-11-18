@@ -1243,3 +1243,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-size: 14px;
   letter-spacing: 0.04em;
 }
+/* Enquadramento das fotos novas: mantém o letreiro inteiro dentro do recorte */
+#municipio-lavinia .municipio-foto img { object-position: left center; }
+#municipio-murutinga-do-sul .municipio-foto img { object-position: 60% center; }
