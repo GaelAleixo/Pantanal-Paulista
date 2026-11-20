@@ -10,9 +10,11 @@
   var caixa = document.querySelector('.eventos-acoes');
   if (link && caixa && /^https:\/\//.test(cfg.EVENTOS_FORM_URL || '')) { link.href = cfg.EVENTOS_FORM_URL; caixa.hidden = false; }
 
+  // compara sem acento e sem diferença de maiúsculas (o formulário grava "Gastronomicos", o botão tem acento)
+  function norm(s) { return String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').trim().toLowerCase(); }
   function aplicar() {
     lista.querySelectorAll('.item-evento').forEach(function (li) {
-      li.hidden = !(filtro === 'Todos' || li.getAttribute('data-categoria') === filtro);
+      li.hidden = !(filtro === 'Todos' || norm(li.getAttribute('data-categoria')) === norm(filtro));
     });
   }
   botoes.forEach(function (b) {
